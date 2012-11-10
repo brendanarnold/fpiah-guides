@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Silverlight application structure (MVVM) - Windows Phone 7 Development for People in a Hurry</title>
+
+    <script type="text/javascript">
+    
+    </script>
+
+    <style type="text/css">
+    
+    </style>
+
+  </head>
+  <body>
+    <ul id="nav"><li><a href="index.html">Home</a></li></ul>
+    <h1>Silverlight application structure (MVVM)</h1>
+
+    <h2>Intro</h2>
+
+    <ul>
+      <li>MVVM stands for Model, View, View-Model</li>
+      <li>It is a 'pattern' i.e. a coding convention that is not
+      enforced but has benefits if you follow it</li>
+      <li>You should follow this convention unless you have a good
+      reason not to</li>
+      <li>The MVVM pattern tells you how to split up and organise you
+      code for your application</li>
+      <li>It defines three roles for your code, the Model, the View and
+      the View-Model</li>
+      <li>We usually create a directory in our project for each of these
+      roles. Files are orgaised into these directories depending on
+      their role</li>
+    </ul>
+
+    <h2>View</h2>
+
+    <ul>
+      <li>The View is code that deals with the UI</li>
+      <li>Pages and UserControls (i.e. custom widgets) defined in XAML and their 'code behind files' (i.e. the
+      .cs or .vb files that are linked to the .xaml file in the Visual
+      Studio project explorer) belong in the view</li>
+      <li>In the code-behind files we generally put only code to handle
+      UI behaviour (e.g. showing a MessageBox or handling a button
+      click) and <em>not</em> code that, for example, saves an object to
+      a database</li>
+    </ul>
+      
+    <h2>Model</h2>
+
+    <ul>
+        <li>The Model is the code that stores the actual data</li>
+        <li>Code that retrieves the data from the data source e.g. the
+        webserver, database, XML files etc. belongs in the model.</li>
+        <li>The classes that contain the data from the datasource e.g.
+        the 'Customer' class and the 'Invoices' class, also belong in
+        the source</li>
+    </ul>
+
+    <h2>View-Model</h2>
+
+    <ul>
+        <li>The View-Model is a single class
+
+
+
+  </body>
+</html>

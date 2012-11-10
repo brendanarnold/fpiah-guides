@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+
+<!-- Don't try to understand it until much later, just make sure it at the top of all your webpages. -->
+
+<!-- So you want to write a webpage properly?  Copy and paste this text
+into a  file callled index.html and open it with your web-browser
+(Internet Explorer, Netscape whatever) You should see a web-page.
+
+Note: None of the text between <!-- and --> markers are seen, these are
+      comments and are invisible to the web-browser.  -->
+
+
+<html>
+
+<!-- All content between the 'head' tags (i.e. from <head> to </head>)
+is used by the browser and does not actually appear on the webpage. It
+is important. -->
+
+<head>
+
+<!-- Text in the 'title' tags is generally used by the browser (look at
+the very top of the screen) and search engines to index your webpage -->
+
+<title>YOUR WEBPAGE TITLE HERE</title>
+
+</head>
+
+<!-- Content between the 'body' tags appears on the webpage -->
+
+<body>
+
+<!-- 'h1' stands for header level 1. There should be one h1 per webpage.
+We can change how h1 text looks by using Style Sheets (see other FPIAH
+guide to CSS) -->
+
+<h1>My First Webpage</h1>
+
+<p>My first paragraph of webpage text.</p>
+
+<p>I am <em>really</em> excited to be using <abbr title="eXtensible Hypertext Markup Language">XHTML</abbr> to markup my first webpage.</p>
+
+
+</body>
+</html>
