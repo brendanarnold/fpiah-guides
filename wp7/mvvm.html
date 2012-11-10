@@ -14,53 +14,82 @@
   </head>
   <body>
     <ul id="nav"><li><a href="index.html">Home</a></li></ul>
-    <h1>Silverlight application structure (MVVM)</h1>
+    <h1>Silverlight application structure (MVVM) - Windows Phone 7
+    Development for People in a Hurry</h1>
 
-    <h2>Intro</h2>
+    <h2>Introduction</h2>
 
     <ul>
       <li>MVVM stands for Model, View, View-Model</li>
-      <li>It is a 'pattern' i.e. a coding convention that is not
-      enforced but has benefits if you follow it</li>
-      <li>You should follow this convention unless you have a good
-      reason not to</li>
-      <li>The MVVM pattern tells you how to split up and organise you
-      code for your application</li>
-      <li>It defines three roles for your code, the Model, the View and
-      the View-Model</li>
-      <li>We usually create a directory in our project for each of these
-      roles. Files are orgaised into these directories depending on
-      their role</li>
+      <li>It is a 'pattern' i.e. a coding convention that is not enforced but has benefits if you follow it</li>
+      <li>You should follow this convention unless you have a good reason not to</li>
+      <li>The MVVM pattern tells you how to split up and organise you code for your application</li>
+      <li>It defines three roles for your code, the Model, the View and the View-Model
+        <ul>
+          <li><em>View</em> code deals with the user interface (UI)</li>
+          <li><em>Model</em> code stores the application data</li>
+          <li><em>View-Model</em> code interfaces the View code with the Model code</li>
+        </ul>
+      </li>
+      <li>The MVVM pattern works well in Windows Phone because of 'data binding'</li>
     </ul>
 
-    <h2>View</h2>
+    <h2>Data binding</h2>
 
     <ul>
-      <li>The View is code that deals with the UI</li>
-      <li>Pages and UserControls (i.e. custom widgets) defined in XAML and their 'code behind files' (i.e. the
-      .cs or .vb files that are linked to the .xaml file in the Visual
-      Studio project explorer) belong in the view</li>
-      <li>In the code-behind files we generally put only code to handle
-      UI behaviour (e.g. showing a MessageBox or handling a button
-      click) and <em>not</em> code that, for example, saves an object to
-      a database</li>
-    </ul>
-      
-    <h2>Model</h2>
-
-    <ul>
-        <li>The Model is the code that stores the actual data</li>
-        <li>Code that retrieves the data from the data source e.g. the
-        webserver, database, XML files etc. belongs in the model.</li>
-        <li>The classes that contain the data from the datasource e.g.
-        the 'Customer' class and the 'Invoices' class, also belong in
-        the source</li>
+        <li>To save writing lots of code to read and write data to and from the View (UI), the View can 'data bind' most XAML attributes to a property of a 'bound' object</li>
+        <li>This is when changes in the 'bound' object are automatically reflected in the View and optionally vice-versa</li>
+        <li>The bound object is the View-Model object</li>
+        <li>This structure allows all updates to and from the Model to be made on the View-Model object - the View automatically updates accordingly</li>
     </ul>
 
-    <h2>View-Model</h2>
+    <div class="#figure">
+        <img src="images/binding.png" />
+    </div>
+
+
+    <h2>Code organisation</h2>
+
+      <p>We usually create a directory in our project for each of these roles. Files are organised into these directories depending on their role</p>
+
+    <h3>View</h3>
 
     <ul>
-        <li>The View-Model is a single class
+      <li>Pages and UserControls (i.e. custom widgets) defined in XAML and their 'code behind files' (i.e. the .cs or .vb files that are linked to the .xaml file in the Visual Studio project explorer) belong in the view</li>
+      <li>In the code-behind files we generally put only code to handle UI behaviour (e.g. showing a MessageBox or handling a button click)</li>
+      <li>If a button click does something that is not to do with the UI, for example save an object to a database, then the code-behind should immediately call a method on the View-Model</li>
+    </ul>
+
+    <h3>Model</h3>
+
+    <ul>
+        <li>Code that provides the interface for the data source (e.g. database, XML files, webserver etc.) belongs in the model.</li>
+        <li>The classes that contain the data from the datasource e.g.  the 'Customer' class and the 'Invoice' class belong in the Model</li>
+        <li>However, collections of these classes, for example to be displayed in a list in the View, should be defined in the View-Model</li>
+        <li>Also the actual calling of the interface to the datasource should be done in the View-Model</li>
+    </ul>
+
+    <h3>View-Model</h3>
+
+    <ul>
+        <li>The object that provides the properties for UI binding <em>is</em> the View-Model</li>
+        <li>Methods that takes the raw data from the Model and processes it for the UI goes in the View-Model class</li>
+        <li>Methods that process submitted user input to be saved to the Model goes in the View-Model class</li>
+        <li>Smaller applications usually have one View-Model class for the entire application, larger applications may split so that there is one View-Model class for every XAML page</li>
+    </ul>
+
+    <h3>Other code</h3>
+
+    <ul>
+        <li>Other code which does not easily fall into one of the three categories such as e.g. code for processing speech, can be put in a separate directory</li>
+    </ul>
+
+    <h3>Further notes</h3>
+
+    <ul>
+        <li>It should be possible to remove the View code from the project and the application should still compile and run (albeit with no way to input or output data)</li>
+        <li>The Model and the View-Model however are tightly related and cannot operate without each other</li>
+    </ul>
 
 
 
