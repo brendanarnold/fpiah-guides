@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Silverlight application structure (MVVM) - Windows Phone 7 Development for People in a Hurry</title>
+    <title>Model, View, View-Model (MVVM) - Windows Phone 7 Development for People in a Hurry</title>
 
-    <script type="text/javascript">
+
+    <script src="js/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
     
-    </script>
+
+    <link rel="stylesheet" href="style.css" type="text/css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="js/highlight/styles/github.css" type="text/css">
 
     <style type="text/css">
     
@@ -13,9 +17,14 @@
 
   </head>
   <body>
-    <ul id="nav"><li><a href="index.html">Home</a></li></ul>
-    <h1>Silverlight application structure (MVVM) - Windows Phone 7
-    Development for People in a Hurry</h1>
+    <ul id="nav">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="index.html">Windows Phone 7 Development for People in a Hurry</a></li>
+    </ul>
+
+    <div id="mainbody">
+
+    <h1>Model, View, View-Model (MVVM) - Windows Phone 7 Development for People in a Hurry</h1>
 
     <h2>Introduction</h2>
 
@@ -43,8 +52,8 @@
         <li>This structure allows all updates to and from the Model to be made on the View-Model object - the View automatically updates accordingly</li>
     </ul>
 
-    <div class="#figure">
-        <img src="images/binding.png" />
+    <div class="figure">
+        <img src="images/binding_figure.png" width="522px" height="390px" />
     </div>
 
 
@@ -91,6 +100,78 @@
         <li>The Model and the View-Model however are tightly related and cannot operate without each other</li>
     </ul>
 
+    <h2>Benefits of MVVM</h2>
+
+    <ul>
+        <li>Lots of the UI coding is taken care of</li>
+        <li>Expression Blend has tools to mock up a fake View-Model object with sample data so you can design the UI without a working backend</li>
+        <li>A de-coupled View makes substituting another View e.g. web, desktop more straightforward</li>
+        <li>Unit testing of the backend is easier, since it does not have to load the UI for it to compile and run</li>
+        <li>However, with only the free development tools, writing the getters/setters plus appropriate events all bound View-Model properties to get it to work is tedious</li>
+    </ul>
+
+
+    <h2>Implementing binding</h2>
+
+    <p>First we must establish a DataContext. In the code-behind constructor in C#,</p>
+
+    <pre><code>this.DataContext = myViewModel;</code></pre>
+
+    <p><code>this</code> refers to the page object. This means that property names specified in binding in page elements will refer to the <code>myViewModel</code> properties.</p>
+
+    <h3>Basic binding</h3>
+
+    <pre><code>
+        &lt;TextBlock Text="{Binding Name}" /&gt;
+    </code></pre>
+
+    <p>means that the <code>Text</code> attribute of the <code>TextBlock</code> is bound to the <code>Name</code> property on the ViewModel instance.</p>
+
+    <h3>Two-way binding</h3>
+
+    <pre><code>
+        &lt;TextBox Text="{Binding Name, Mode=TwoWay}" /&gt;
+    </code></pre>
+
+    <p>is similar but now the UI can write to the ViewModel property as well as read from it.</p>
+
+    <h3>Binding via a Convertor</h3>
+
+    <p>Some attributes require UI specific values. For example the Visibility attribute requires the bound data type to be a Visibility enum which is specific to XAML. Writing a View-Model property of type Visibility is therefore tied to XAML code and therfore more difficult to adapt to HTML for example. This is solved with Converters. These are classes that live in the Converter.cs file in the View folder that intercept the code between the bound property and the XAML attribute.</p>
+    <p>In the <code>phone:PhoneApplicationPage.Resources</code> element,</p>
+
+    <pre><code>&lt;My_ViewNamespace:BoolToStrings x:Key="BoolToVisibilityConverter"/&gt;</code></pre>
+
+    <p>then the actual binding,</p>
+
+    <pre><code>
+&lt;Canvas Visibility="{Binding IsProtected, Convertor=BoolToVisibilityConverter}" /&gt;
+    </code></pre>
+
+    <p>This passes the value of the IsProtected property through the BoolToVisibilityConverter class before showing in the UI. Converter classes implement the <code>IValueConverter</code> interface like below,</p>
+
+    <pre><code>public class BoolToVisibilityConverter : System.Windows.Data.IValueConverter
+{
+    public object Convert(object value, Type targetType, object parameter, CultureInfo cultureInfo)
+    {
+        if ((bool)value)
+        {
+            return Visibility.Visible;
+        }
+        else
+        {
+            return Visibility.Collapsed;
+        }
+    }
+
+    public object ConvertBack(object value, Type targetType, object parameter, CultureInfo cultureInfo)
+    {
+       return (Visibility)value == Visibility.Visible;
+    }
+}
+    </code></pre>
+
+    </div>
 
 
   </body>
