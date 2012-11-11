@@ -10,6 +10,7 @@
 
     <link rel="stylesheet" href="style.css" type="text/css" media="screen" charset="utf-8">
     <link rel="stylesheet" href="js/highlight/styles/github.css" type="text/css">
+    <link rel="stylesheet" href="styles/filetree/filetree_style.css" type="text/css" media="screen" charset="utf-8">
 
     <style type="text/css">
     
@@ -24,63 +25,156 @@
 
     <div id="mainbody">
 
-    <h1>Skeleton project - Windows Phone 7 Development for People in a Hurry</h1>
+    <h1>Suggested Skeleton project - Windows Phone 7 Development for People in a Hurry</h1>
 
-    <ul>
-        <li>View
-            <ul>
-                <li>Converters.cs
-                <li>UserControls
-                    <ul>
-                        <li>MyUserControl1.xaml
-                            <ul>
-                                <li>MyUserControl1.xaml.cs
-                            </ul>
-                        <li>MyUserControl2.xaml
-                            <ul>
-                                <li>MyUserControl2.xaml.cs
-                            </ul>
-                    </ul>
-            <li>ProfilesPage.xaml
-                <ul>
-                    <li>ProfilesPage.xaml.cs
-                </ul>
-            <li>EditProfilePage.xaml
-                <ul>
-                    <li>EditProfilePage.xaml.cs
-                </ul>
-            <li>OrdersPage.xaml
-                <ul>
-                    <li>OrdersPage.xaml.cs
-                </ul>
-            <li>EditOrderPage.xaml
-                <ul>
-                    <li>EditOrderPages.xaml.cs
-                </ul>
-        </ul>
-    <li>Model
+    <p>Windows Phone SDK does not enforce a standard layout for the
+    project. The following has worked well for me</p>
+
+    <ol class="tree">
+        <li>
+            <label class="folder" for="viewfolder">View</label> <input type="checkbox" checked id="viewfolder" />
+            <ol>
+                <li class="file"><span>Converters.cs</span></li>
+                <li>
+                    <label class="folder" for="usercontrolsfolder">UserControls</label> <input type="checkbox" checked id="usercontrolsfolder" />
+                    <ol>
+                        <li>
+                            <label class="xaml" for="muc1xaml">MyUserControl1.xaml</label> <input type="checkbox" id="muc1xaml" />
+                            <ol>
+                               <li class="file"><span>MyUserControl1.xaml.cs</span></li>
+                            </ol>
+                        </li>
+                        <li>
+                            <label class="xaml" for="muc2xaml">MyUserControl2.xaml</label> <input type="checkbox" id="muc2xaml" />
+                            <ol>
+                                <li class="file"><span>MyUserControl2.xaml.cs</span></li>
+                            </ol>
+                        </li>
+                    </ol>
+                </li>
+            </li>
+            <li>
+                <label class="xaml" for="ppxaml">ProfilesPage.xaml</label> <input type="checkbox" id="ppxaml" />
+                <ol>
+                    <li class="file"><span>ProfilesPage.xaml.cs</span></li>
+                </ol>
+            </li>
+            <li>
+                <label class="xaml" for="eppxaml">EditProfilePage.xaml</label> <input type="checkbox" id="eppxaml" />
+                <ol>
+                    <li class="file"><span>EditProfilePage.xaml.cs</span></li>
+                </ol>
+            </li>
+            <li>
+                <label class="xaml" for="opxaml">OrdersPage.xaml</label> <input type="checkbox" id="opxaml" />
+                <ol>
+                    <li class="file"><span>OrdersPage.xaml.cs</span></li>
+                </ol>
+            </li>
+            <li>
+                <label class="xaml" for="eopxaml">EditOrderPage.xaml</label> <input type="checkbox" id="eopxaml" />
+                <ol>
+                    <li class="file"><span>EditOrderPage.xaml.cs</span></li>
+                </ol>
+            </li>
+        </ol>
+    <li>
+        <label class="folder" for="modelfolder">Model</label> <input type="checkbox" checked id="modelfolder" />
+        <ol>
+            <li class="file"><span>Profile.cs</span></li>
+            <li class="file"><span>Order.cs</span></li>
+            <li class="file"><span>StorageInterface.cs</span></li>
+            <li class="file"><span>StorageInitialiser.cs</span></li>
+            <li class="file"><span>StorageMigrater.cs</span></li>
+        </ol>
+    </li>
+    <li>
+        <label class="folder" for="viewmodelfolder">ViewModel</label> <input type="checkbox" checked id="viewmodelfolder" />
+        <ol>
+            <li class="file"><span>AppViewModel.cs</span></li>
+        </ol>
+    </li>
+    <li>
+        <label class="folder" for="sampledatafolder">SampleData</label> <input type="checkbox" checked id="sampledatafolder" />
+    </li>
+    <li>
+        <label class="folder" for="includesfolder">Includes</label> <input type="checkbox" checked id="includesfolder" />
+        <ol>
+            <li>
+                <label class="folder" for="wptfolder">WindowsPhoneToolkit</label> <input type="checkbox" id="wptfolder" />
+            </li>
+        </ol>
+    </li>
+    <li>
+        <label class="folder" for="imagesfolder">Images</label> <input type="checkbox" id="imagesfolder" />
+    </li>
+    <li class="file"><span>AppConstants.cs</span></li>
+    <li>
+        <label class="xaml" for="appxaml">App.xaml</label> <input type="checkbox" id="appxaml" />
+        <ol>
+            <li class="file"><span>App.xaml.cs</span></li>
+        </ol>
+    </li>
+</ol>
+
+<h2>View</h2>
+
+<ul>
+    <li>All files in folder are under the 'YourAppName.View' namespace</li>
+    <li>Contains all XAML pages and their code-behind files apart from App.xaml</li>
+    <li>UserControls folder contains user controls</li>
+    <li>Converters.cs is a files that contains all the <a href="binding#converters">Converter classes</a></li>
+</ul>
+
+<h2>Model</h2>
+
+<ul>
+    <li>All files in folder are under the 'YourAppName.Model' namespace</li>
+    <li>Includes classes for the objects retrieved from your datasource e.g. Profile.cs and Order.cs</li>
+    <li>StorageInterface.cs is a class that implements the interface to the datasource e.g. database, webservice, XAML files (n.b. this is the ToDoDataContext.cs file in the <a href="http://msdn.microsoft.com/en-us/library/hh286405.aspx">Local database app with MVVM for Windows Phone tutorial</a>)</li>
+    <li>StorageInitialiser.cs contains a class and objects that populate the database, XML storage etc. on first use with e.g. Order templates. This should contain code that is run once on a fresh install.</li> 
+    <li>StorageMigrater.cs contains code for updating the database, XML storage between different versions of the app. This is run once when the app is updated.</li>
+</ul>
+
+<h2>View-Model</h2>
+
+<ul>
+    <li>All files are under the 'YourAppName.ViewModel' namespace</li>
+    <li>AppViewModel.cs implements a single AppViewModel class which loads the necessary data form the Model into its properties. These properties are mirrored automatically in the View</li>
+</ul>
+
+<h2>SampleData</h2>
+
+<ul>
+    <li>Expression Blend can create sample data. That data can go in the SampleData directory</li>
+</ul>
+
+<h2>Includes</h2>
+
+<ul>
+    <li>A space for included libraries (.dll files)</li>
+    <li>Pretty much every Silverlight Windows phone project will need the <a href="http://phone.codeplex.com/">Windows Phone Toolkit</a></li>
+    <li>Create a separate folder for each library</li>
+</ul>
+
+<h2>Images</h2>
+
+<ul>
+    <li>A space for images that are included in the project</li>
+    <li>For all images set
         <ul>
-            <li>Profile.cs
-            <li>Order.cs
-            <li>AppDataContext.cs
-            <li>SetupDataBase.cs
+            <li>Build Type: Content</li>
+            <li>Copy to Output Directory: Copy if newer</li>
         </ul>
-    <li>ViewModel
-        <ul>
-            <li>AppViewModel.cs
-            <li>AppViewModelBoilerPlate.cs
-        </ul>
-    <li>SampleData
-    <li>Includes
-        <ul>
-            <li>WindowsPhoneToolkit
-        </ul>
-    <li>Images
-    <li>AppConstants.cs
-    <li>App.xaml
-        <ul>
-            <li>App.xaml.cs
-        </ul>
+    </li>
+</ul>
+
+<h2>Root directory</h2>
+
+<ul>
+    <li>Classes should be under the root namespace e.g. 'MyAppName'</li>
+    <li>AppConstants is a static class with 'const' properties that are used throughout the app</li>
+    <li>App.xaml creates an instance of the ViewModel class which can be referred to anywhere in the app as 'App.VM'</li>
 </ul>
 
     </div>
