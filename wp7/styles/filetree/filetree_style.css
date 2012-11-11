@@ -10,6 +10,7 @@ ol.tree
 	{ 
 		position: relative; 
 		margin-left: -15px;
+        margin-bottom: 0px;
 		list-style: none;
 	}
 	ol.tree li.file

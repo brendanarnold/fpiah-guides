@@ -9,7 +9,7 @@
     <script>hljs.initHighlightingOnLoad();</script>
     
 
-    <link rel="stylesheet" href="style.css" type="text/css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="styles/style.css" type="text/css" media="screen" charset="utf-8">
     <link rel="stylesheet" href="js/highlight/styles/github.css" type="text/css">
 
     <style type="text/css">
@@ -19,7 +19,7 @@
   </head>
   <body>
     <ul id="nav">
-        <li><a href="index.html">Windows Phone Development for People in a Hurry</a></li>
+        <li><a href="index.html">Home</a></li>
     </ul>
 
     <div id="mainbody">
@@ -39,20 +39,17 @@
 
     <h3>Basic binding</h3>
 
-    <pre><code>
-        &lt;TextBlock Text="{Binding Name}" /&gt;
-    </code></pre>
+    <pre><code>&lt;TextBlock Text="{Binding Name}" /&gt;</code></pre>
 
     <p>means that the <code>Text</code> attribute of the <code>TextBlock</code> is bound to the <code>Name</code> property on the ViewModel instance.</p>
 
     <h3>Two-way binding</h3>
 
-    <pre><code>
-        &lt;TextBox Text="{Binding Name, Mode=TwoWay}" /&gt;
-    </code></pre>
+    <pre><code>&lt;TextBox Text="{Binding Name, Mode=TwoWay}" /&gt;</code></pre>
 
     <p>is similar but now the UI can write to the ViewModel property as well as read from it.</p>
 
+    <a name="converters"></a>
     <h3>Binding via a Convertor</h3>
 
     <p>Some attributes require UI specific values. For example the Visibility attribute requires the bound data type to be a Visibility enum which is specific to XAML. Writing a View-Model property of type Visibility is therefore tied to XAML code and therfore more difficult to adapt to HTML for example. This is solved with Converters. These are classes that live in the Converter.cs file in the View folder that intercept the code between the bound property and the XAML attribute.</p>
@@ -62,9 +59,7 @@
 
     <p>then the actual binding,</p>
 
-    <pre><code>
-&lt;Canvas Visibility="{Binding IsProtected, Convertor=BoolToVisibilityConverter}" /&gt;
-    </code></pre>
+    <pre><code>&lt;Canvas Visibility="{Binding IsProtected, Convertor=BoolToVisibilityConverter}" /&gt;</code></pre>
 
     <p>This passes the value of the IsProtected property through the BoolToVisibilityConverter class before showing in the UI. Converter classes implement the <code>IValueConverter</code> interface like below,</p>
 
@@ -86,8 +81,7 @@
     {
        return (Visibility)value == Visibility.Visible;
     }
-}
-    </code></pre>
+}</code></pre>
 
     </div>
 
