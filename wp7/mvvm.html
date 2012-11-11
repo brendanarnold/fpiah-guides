@@ -18,7 +18,7 @@
   </head>
   <body>
     <ul id="nav">
-        <li><a href="/index.html">Home</a></li>
+        <li><a href="/">Home</a></li>
         <li><a href="index.html">Windows Phone 7 Development for People in a Hurry</a></li>
     </ul>
 
@@ -40,16 +40,17 @@
           <li><em>View-Model</em> code interfaces the View code with the Model code</li>
         </ul>
       </li>
-      <li>The MVVM pattern works well in Windows Phone because of 'data binding'</li>
+      <li>The MVVM pattern works well in Windows Phone because of <em><a
+      href="binding.html">data binding</a></em></li>
     </ul>
 
     <h2>Data binding</h2>
 
     <ul>
-        <li>To save writing lots of code to read and write data to and from the View (UI), the View can 'data bind' most XAML attributes to a property of a 'bound' object</li>
-        <li>This is when changes in the 'bound' object are automatically reflected in the View and optionally vice-versa</li>
+        <li>To save writing lots of code to read and write data to and from the View (UI), the View can 'databind' most XAML attributes to a 'bound' property of an object.</li>
+        <li>When the 'bound' property changes, this is automatically reflected in the View and (optionally) vice-versa</li>
         <li>The bound object is the View-Model object</li>
-        <li>This structure allows all updates to and from the Model to be made on the View-Model object - the View automatically updates accordingly</li>
+        <li>This structure allows most application logic to be concerned with making changes on the View-Model object - the View automatically updates accordingly</li>
     </ul>
 
     <div class="figure">
@@ -59,12 +60,12 @@
 
     <h2>Code organisation</h2>
 
-      <p>We usually create a directory in our project for each of these roles. Files are organised into these directories depending on their role</p>
+      <p>The <a href="skeleton.html">skeleton project</a> contains a directory for each of these roles. Files are organised into these directories depending on their role</p>
 
     <h3>View</h3>
 
     <ul>
-      <li>Pages and UserControls (i.e. custom widgets) defined in XAML and their 'code behind files' (i.e. the .cs or .vb files that are linked to the .xaml file in the Visual Studio project explorer) belong in the view</li>
+      <li>Pages and UserControls (i.e. custom widgets) defined in XAML and their 'code behind files' (i.e. the .cs or .vb files that are linked to the .xaml file in the Visual Studio project explorer) belong in the View</li>
       <li>In the code-behind files we generally put only code to handle UI behaviour (e.g. showing a MessageBox or handling a button click)</li>
       <li>If a button click does something that is not to do with the UI, for example save an object to a database, then the code-behind should immediately call a method on the View-Model</li>
     </ul>
@@ -72,16 +73,16 @@
     <h3>Model</h3>
 
     <ul>
-        <li>Code that provides the interface for the data source (e.g. database, XML files, webserver etc.) belongs in the model.</li>
+        <li>Code that implements the interface for the data source (e.g. database, XML files, webservice etc.) belongs in the Model.</li>
+        <li>However the actual calling of the interface should be done in the View-Model</li>
         <li>The classes that contain the data from the datasource e.g.  the 'Customer' class and the 'Invoice' class belong in the Model</li>
-        <li>However, collections of these classes, for example to be displayed in a list in the View, should be defined in the View-Model</li>
-        <li>Also the actual calling of the interface to the datasource should be done in the View-Model</li>
+        <li>However, collections of these classes, for example to be displayed in a list in the View, should be in the View-Model</li>
     </ul>
 
     <h3>View-Model</h3>
 
     <ul>
-        <li>The object that provides the properties for UI binding <em>is</em> the View-Model</li>
+        <li>The object that provides the properties for UI binding is the View-Model</li>
         <li>Methods that takes the raw data from the Model and processes it for the UI goes in the View-Model class</li>
         <li>Methods that process submitted user input to be saved to the Model goes in the View-Model class</li>
         <li>Smaller applications usually have one View-Model class for the entire application, larger applications may split so that there is one View-Model class for every XAML page</li>
@@ -111,65 +112,6 @@
     </ul>
 
 
-    <h2>Implementing binding</h2>
-
-    <p>First we must establish a DataContext. In the code-behind constructor in C#,</p>
-
-    <pre><code>this.DataContext = myViewModel;</code></pre>
-
-    <p><code>this</code> refers to the page object. This means that property names specified in binding in page elements will refer to the <code>myViewModel</code> properties.</p>
-
-    <h3>Basic binding</h3>
-
-    <pre><code>
-        &lt;TextBlock Text="{Binding Name}" /&gt;
-    </code></pre>
-
-    <p>means that the <code>Text</code> attribute of the <code>TextBlock</code> is bound to the <code>Name</code> property on the ViewModel instance.</p>
-
-    <h3>Two-way binding</h3>
-
-    <pre><code>
-        &lt;TextBox Text="{Binding Name, Mode=TwoWay}" /&gt;
-    </code></pre>
-
-    <p>is similar but now the UI can write to the ViewModel property as well as read from it.</p>
-
-    <h3>Binding via a Convertor</h3>
-
-    <p>Some attributes require UI specific values. For example the Visibility attribute requires the bound data type to be a Visibility enum which is specific to XAML. Writing a View-Model property of type Visibility is therefore tied to XAML code and therfore more difficult to adapt to HTML for example. This is solved with Converters. These are classes that live in the Converter.cs file in the View folder that intercept the code between the bound property and the XAML attribute.</p>
-    <p>In the <code>phone:PhoneApplicationPage.Resources</code> element,</p>
-
-    <pre><code>&lt;My_ViewNamespace:BoolToStrings x:Key="BoolToVisibilityConverter"/&gt;</code></pre>
-
-    <p>then the actual binding,</p>
-
-    <pre><code>
-&lt;Canvas Visibility="{Binding IsProtected, Convertor=BoolToVisibilityConverter}" /&gt;
-    </code></pre>
-
-    <p>This passes the value of the IsProtected property through the BoolToVisibilityConverter class before showing in the UI. Converter classes implement the <code>IValueConverter</code> interface like below,</p>
-
-    <pre><code>public class BoolToVisibilityConverter : System.Windows.Data.IValueConverter
-{
-    public object Convert(object value, Type targetType, object parameter, CultureInfo cultureInfo)
-    {
-        if ((bool)value)
-        {
-            return Visibility.Visible;
-        }
-        else
-        {
-            return Visibility.Collapsed;
-        }
-    }
-
-    public object ConvertBack(object value, Type targetType, object parameter, CultureInfo cultureInfo)
-    {
-       return (Visibility)value == Visibility.Visible;
-    }
-}
-    </code></pre>
 
     </div>
 
