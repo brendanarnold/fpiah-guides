@@ -56,7 +56,13 @@ li {
     margin-bottom: 10px;
 }
 
-ul.linklist > li {
+ul.linklist > li, ul.compact > li {
     margin-bottom: 0px;
 }
 
+h2#tagline {
+}
+
+h1 {
+    font-size: 3em;
+}
