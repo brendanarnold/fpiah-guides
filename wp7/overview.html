@@ -9,6 +9,7 @@
     </script>
 
     <link rel="stylesheet" href="styles/style.css" type="text/css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="styles/filetree/filetree_style.css" type="text/css" media="screen" charset="utf-8">
 
     <style type="text/css">
     
@@ -30,38 +31,47 @@
 
     <ul>
         <li>The Windows Phone platform is a subset of Silverlight which is itself a subset of the Windows Presentation Foundation. When searching for solutions first try including 'Windows Phone' then try 'Silverlight', then try 'WPF'</li>
-        <li>The UI for all of the above is written in 'eXtensible Application Markup Language' (XAML) and the backend is written in either C# or Visual Basic (VB)</li>
-        <li>Windows Phone 8 may also be written in Native Code (C++) and HTML/Javascript</li>
+        <li>The UI for all of the above is written in 'eXtensible Application Markup Language' (XAML) which is a diaect of XML and the backend is written in either C# or Visual Basic (VB)</li>
+        <li>If you are coming woth no knowledge of VB or C#, opt for C#</li>
+        <li>Windows Phone 8 may also be written in Native Code (C++) and HTML/Javascript but this is not covered in these guides</li>
         <li>XAML/C# is directly comparable to HTML/Javascript however,
             <ul class="compact">
                 <li>XAML/C# are much cleaner languages</li>
                 <li>XAML/C# are tailored for the task of writing applications</li>
                 <li>HTML/Javascript apps takes less changes to port to another platform</li>
-            </ul>
-        </li>
-        <li>.NET is,
-            <ul class="compact">
-                <li>a huge class library</li>
-                <li>the virtual machine that runs compiled C# or VB code</li>
-                <li>the name for the platform as a whole</li>
+                <li>There is no analalogue for CSS in XAML/C#, the look of an app is expressed in XAML only</li>
             </ul>
         </li>
     </ul>
 
-    <h2>Visual Studio Express</h2>
+    <h2>Solutions and Projects</h2>
 
     <ul>
-        <li>Visual Studio is a development environment optimised for writing C#/VB code</li>
-        <li>There is some support for designing XAML pages in Visual Studio but the experience is better in Blend</li>
+        <li>A Windows Phone app is organised into a 'Solution' and 'Projects'</li>
+        <li>A 'Solution' groups together Projects that are associated with your application</li>
+        <li>'Projects' are, by example,
+            <ul class="compact">
+                <li>Your Windows Phone app</li>
+                <li>Unit tests for your Windows Phone app</li>
+                <li>A desktop front-end for your Windows Phone app</li>
+                <li>A web front-end for your Windows Phone app</li>
+                <li>A separate library spun out of the main project</li>
+            </ul>
+        <li>Often a Solution only contains one Project (your Windows Phone app)</li>
+        <li>See <a href="project.html">Understanding  Windows Phone Project files</a> for a guide on what the pre-generated Project files do</li>
+        <li><code>.cproj</code> or <code>.vbproj</code> and <code>.sln</code> files are just XML. Take a look inside with a text editor to see that they mostly contain references to other files</li>
+    </ul>
+
+            
+    <h2>Tools</h2>
+
+    <ul>
+        <li>Visual Studio Express is optimised for writing C#/VB code</li>
+        <li>Expression Blend is a design tool that is optimised for generating XAML</li>
+        <li>There is some support for designing XAML pages in Visual Studio and editing C#/VB code in Blend but the experience is better using both tools for their intended tasks</li>
         <li>Editing XAML code directly is a better experience in Visual Studio</li>
         <li>The main difference between the free Express edition of Visual Studio and the full version is that you cannot install plugins in the Express edition</li>
-    </ul>
-
-    <h2>Expression Blend</h2>
-
-    <ul>
-        <li>Expression Blend is a design tool that is optimised for generating XAML</li>
-        <li>You can write C#/VB in Blend but the experience is not as good as in Visual Studio</li>
+        <li>The SDK includes a Windows Phone Emulator which is a Virtual Machine running the actual Windows Phone operating System</li>
     </ul>
 
     </div>

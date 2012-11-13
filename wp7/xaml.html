@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>XAML - Windows Phone Development For People In a Hurry</title>
+
+    <script src="js/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script type="text/javascript">
+    
+    </script>
+
+    <link rel="stylesheet" href="styles/style.css" type="text/css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="js/highlight/styles/github.css" type="text/css">
+
+    <style type="text/css">
+    
+    </style>
+
+  </head>
+  <body>
+    <ul id="nav">
+        <li><a href="index.html">Home</a></li>
+    </ul>
+
+    <div id="mainbody">
+
+    <h2 id="tagline">Windows Phone Development for People in a Hurry</h2>
+
+    <h1>XAML</h1>
+
+    <p>XAML is an XML dialect.  If you are familiar with HTML there are really only a couple of things in XAML which may not be immediately obvious</p>
+
+    <ul>
+        <li>The many lines of code at the top of the file are XML namespace declarations e.g. <code>xmlns:d="http://schemas.microsoft.com/expression/blend/2008"</code> puts all the elements and attributes defined in the XML schema at the URL under the <code>d</code> namespace</li>
+        <li>Elements and attributes prefixed by e.g. <code>d:</code> are defined under the <code>d</code> namespace</li>
+        <li>Any XAML attribute can be bound using the <a href="binding.html#binding">Binding sytax</a>. This is the code inside the curly braces inside the strings. e.g. <code>&lt;TextBlock Text=&quot;{Binding Name}&quot; /&gt;</code>
+        </li>
+    </ul>
+
+    </div>
+  </body>
+</html>

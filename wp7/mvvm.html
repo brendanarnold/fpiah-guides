@@ -33,14 +33,13 @@
       <li>MVVM stands for Model, View, View-Model</li>
       <li>It is just a <a href="glossary.html#pattern">pattern</a>, however you should follow it unless you have a good reason not to</li>
       <li>It organises your code into three roles for your code, the Model, the View and the View-Model
-        <ul>
-          <li><em>View</em> code deals with the user interface (UI)</li>
-          <li><em>Model</em> code stores the application data</li>
-          <li><em>View-Model</em> code interfaces the View code with the Model code</li>
+        <ul class="compact">
+          <li>View code deals with the user interface (UI)</li>
+          <li>Model code stores the application data</li>
+          <li>View-Model code is (usually) a single object interfaces the View code with the Model code</li>
         </ul>
       </li>
-      <li>The MVVM pattern works well in Windows Phone because of <em><a
-      href="binding.html">data binding</a></em></li>
+      <li>The MVVM pattern works well in Windows Phone because of 'Data Binding'</li>
     </ul>
 
     <h2>Data binding</h2>
@@ -48,16 +47,27 @@
     <ul>
         <li>To save writing lots of code to read and write data to and from the View (UI), the View can 'databind' most XAML attributes to a 'bound' property of an object.</li>
         <li>When the 'bound' property changes, this is automatically reflected in the View and (optionally) vice-versa</li>
-        <li>The bound object is the View-Model object</li>
-        <li>This structure allows most application logic to be concerned with making changes on the View-Model object - the View automatically updates accordingly</li>
+        <li>We write the View-Model object to be the bound object</li>
+        <li>This structure allows most application logic to be concerned with making changes on the View-Model object in C#/VB - the View automatically updates accordingly</li>
+        <li>For details on how this is implemented, see <a href="binding.html">Data binding for people in a hurry</a></li>
     </ul>
 
     <div class="figure">
         <img src="images/binding_figure.png" width="522px" height="390px" />
     </div>
 
+    <h2>Benefits of MVVM</h2>
 
-    <h2>Code organisation</h2>
+    <ul>
+        <li>Lots of the UI coding is taken care of</li>
+        <li>Expression Blend has tools to mock up a fake View-Model object with sample data so you can design the UI without a working backend</li>
+        <li>A de-coupled View makes substituting another View (e.g. web, desktop) more straightforward</li>
+        <li>Unit testing of the backend is easier, since it does not have to load the UI for it to compile and run</li>
+        <li>However, with only the free development tools, writing the getters/setters plus appropriate events all bound View-Model properties to get it to work is tedious</li>
+    </ul>
+
+
+    <h2>Implementing MVVM</h2>
 
       <p>The <a href="skeleton.html">skeleton project</a> contains a directory for each of these roles. Files are organised into these directories depending on their role</p>
 
@@ -96,18 +106,10 @@
     <h3>Further notes</h3>
 
     <ul>
-        <li>It should be possible to remove the View code from the project and the application should still compile and run (albeit with no way to input or output data)</li>
+        <li>Create a public property 'VM' for the View-Model in the App.xaml.cs code-behind. This can be instantiated in the contructor. Now you can access the same View-Model instance anywhere in the app using <code>App.VM</code></li>
+        <li>Write the View-Model so that slow operations do not all occur at the same time when the app is loading e.g. if your app reads a lot of data from a database, only load enough to display the loading page</li> 
+        <li>It should be possible to remove the View code folder from the project and the application should still compile and run (albeit with no way to input or output data)</li>
         <li>The Model and the View-Model however are tightly related and cannot operate without each other</li>
-    </ul>
-
-    <h2>Benefits of MVVM</h2>
-
-    <ul>
-        <li>Lots of the UI coding is taken care of</li>
-        <li>Expression Blend has tools to mock up a fake View-Model object with sample data so you can design the UI without a working backend</li>
-        <li>A de-coupled View makes substituting another View e.g. web, desktop more straightforward</li>
-        <li>Unit testing of the backend is easier, since it does not have to load the UI for it to compile and run</li>
-        <li>However, with only the free development tools, writing the getters/setters plus appropriate events all bound View-Model properties to get it to work is tedious</li>
     </ul>
 
 

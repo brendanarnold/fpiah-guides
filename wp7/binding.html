@@ -28,18 +28,47 @@
 
     <h1>Data Binding</h1>
 
-    <h2>Introduction</h2>
+    <p>For a summary of what Data Binding is see <a href="mvvm.html">MVVM for people in a hurry</a></p>
 
-    <h2>Implementing binding</h2>
+    <h2>DataContext</h2>
 
-    <p>First we must establish a DataContext. In the code-behind constructor in C#,</p>
+    <ul>
+        <li>A good practice is to define XAML Bindings by the property that they mirror. The object this property refers to is determined by the 'DataContext'</li>
+        <li>Properly defining the DataContext allows a fake View-Model object to be bound to at design-time (i.e. when working in Blend) and the actual View-Model object to be loaded at runtime</li>
+    </ul>
 
-    <pre><code>this.DataContext = myViewModel;</code></pre>
+    <h3>Establishing the Design-Time data context</h3>
 
-    <p><code>this</code> refers to the page object. This means that property names specified in binding in page elements will refer to the <code>myViewModel</code> properties.</p>
+    <ul>
+        <li>With a phone page loaded up, In the 'Data' tab to the right of Blend click the icon circled below and select 'Create Sample Data'
+<div class="figure">
+    
+    <img src="images/blend_add_sampledata.png" />
+</div> untick 'Enable sample data when the application is running' and accept
+        </li>
+    	
+        <li>Now the following line appears in App.xaml<pre><code>&lt;SampleData:SampleDataSource x:Key="SampleDataSource" d:IsDataSource="True"/&gt;</code></pre> and a new folder appears in the project</li>
+        <li>In the XAML for you phone page, insert the following line in the <code>phone</code> element underneath all the namespace declarations to create a DataContext for the entire page,<pre><code>d:DataContext="{StaticResource SampleDataSource}"</code></pre></li>
+        <li>Because of the line <code>mc:Ignorable="d" </code> in the phone element, all attributes and elements in the <code>d:</code> namespace are ignored at runtime</li>
+        <li>You can build out the sample data to match your View-Model class by using the editor launched from the 'Data' tab under 'Project' (underlined in the above figure)</li>
+    </ul>
+
+    <h3>Establishing the run-time data context</h3>
+
+    <ul>
+        <li>In the constructor of the code-behind for you phone page insert the line,
+<pre><code>this.DataContext = App.VM;</code></pre></li>
+        <li>If you have instantiated your View-Model instance in App.xaml.cs as recommended, then this will assign the page DataContext at runtime to the actual ViewModel instance</li>
+    </ul>
 
 
-    <h3>Basic binding</h3>
+    <a name="binding"></a>
+    <h2>Binding</h2>
+
+    <ul>
+        <li>The easiest way to bind elements is in Blend and is far better demonstrated than described, <a href="">watch this video</a> for an introduction on how to use Blend to bind elements</li>
+        <li>the absolute basics however are described here</li>
+    </ul>
 
     <pre><code>&lt;TextBlock Text="{Binding Name}" /&gt;</code></pre>
 
@@ -54,7 +83,8 @@
     <a name="converters"></a>
     <h3>Binding via a Convertor</h3>
 
-    <p>Some attributes require UI specific values. For example the Visibility attribute requires the bound data type to be a Visibility enum which is specific to XAML. Writing a View-Model property of type Visibility is therefore tied to XAML code and therfore more difficult to adapt to HTML for example. This is solved with Converters. These are classes that live in the Converter.cs file in the View folder that intercept the code between the bound property and the XAML attribute.</p>
+    <p>Some attributes require UI specific values. e.g. the Visibility attribute requires the bound data type to be a Visibility enum which is specific to XAML. We might want to convert our app to HTML and so would prefer a plain boolean on the View-Model. This is solved with Converters. These are classes that live in the Converter.cs file in the View folder that intercept the code between the bound property and the XAML attribute.</p>
+
     <p>In the <code>phone:PhoneApplicationPage.Resources</code> element,</p>
 
     <pre><code>&lt;My_ViewNamespace:BoolToStrings x:Key="BoolToVisibilityConverter"/&gt;</code></pre>
