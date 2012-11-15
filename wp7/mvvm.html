@@ -77,6 +77,7 @@
       <li>Pages and UserControls (i.e. custom widgets) defined in XAML and their 'code behind files' (i.e. the .cs or .vb files that are linked to the .xaml file in the Visual Studio project explorer) belong in the View</li>
       <li>In the code-behind files we generally put only code to handle UI behaviour (e.g. showing a MessageBox or handling a button click)</li>
       <li>If a button click does something that is not to do with the UI, for example save an object to a database, then the code-behind should immediately call a method on the View-Model</li>
+      <li>It should be possible to remove the View code folder from the project and the application should still compile and run (albeit with no way to input or output data)</li>
     </ul>
 
     <h3>Model</h3>
@@ -95,6 +96,12 @@
         <li>Methods that takes the raw data from the Model and processes it for the UI goes in the View-Model class</li>
         <li>Methods that process submitted user input to be saved to the Model goes in the View-Model class</li>
         <li>Smaller applications usually have one View-Model class for the entire application, larger applications may split so that there is one View-Model class for every XAML page</li>
+        <li>A good place for the View-Model object is on the <code>App</code> object which is globally accessible,
+            <ul class="compact">
+                <li>Create a public property 'VM' for the View-Model in the App.xaml.cs code-behind. This can be instantiated in the contructor. Now you can access the same View-Model instance anywhere in the app using <code>App.VM</code></li>
+            </ul>
+        </li>
+        <li>Write the View-Model so that slow operations do not all occur at the same time when the app is loading e.g. if your app reads a lot of data from a database, only load enough to display the loading page</li>
     </ul>
 
     <h3>Other code</h3>
@@ -102,16 +109,6 @@
     <ul>
         <li>Other code which does not easily fall into one of the three categories such as e.g. code for processing speech, can be put in a separate directory</li>
     </ul>
-
-    <h3>Further notes</h3>
-
-    <ul>
-        <li>Create a public property 'VM' for the View-Model in the App.xaml.cs code-behind. This can be instantiated in the contructor. Now you can access the same View-Model instance anywhere in the app using <code>App.VM</code></li>
-        <li>Write the View-Model so that slow operations do not all occur at the same time when the app is loading e.g. if your app reads a lot of data from a database, only load enough to display the loading page</li> 
-        <li>It should be possible to remove the View code folder from the project and the application should still compile and run (albeit with no way to input or output data)</li>
-        <li>The Model and the View-Model however are tightly related and cannot operate without each other</li>
-    </ul>
-
 
 
     </div>

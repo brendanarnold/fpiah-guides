@@ -30,10 +30,17 @@
     <h2>Architecture</h2> 
 
     <ul>
-        <li>The Windows Phone platform is a subset of Silverlight which is itself a subset of the Windows Presentation Foundation. When searching for solutions first try including 'Windows Phone' then try 'Silverlight', then try 'WPF'</li>
+        <li>There are four options for developing for Window Phone, of which we focus on the latter,
+            <ul class="compact">
+                <li>HTML/Javascript (introduced in Windows Phone 8)</li>
+                <li>Native C++ (introduced in Windows Phone 8)</li>
+                <li><a href="glossary.html#xna">XNA platform</a> (for 3D applications)</li>
+                <li>Silverlight platform (for 2D applications)</li>
+            </ul>
+        </li>
+        <li>The Silverlight Windows Phone platform is a subset of <a href="glossary.html#silverlight">Silverlight</a> which is itself a subset of the <a href="glossary.html#wpf">Windows Presentation Foundation</a>. When searching for solutions first try including 'Windows Phone' then try 'Silverlight', then try 'WPF'</li>
         <li>The UI for all of the above is written in 'eXtensible Application Markup Language' (XAML) which is a diaect of XML and the backend is written in either C# or Visual Basic (VB)</li>
-        <li>If you are coming woth no knowledge of VB or C#, opt for C#</li>
-        <li>Windows Phone 8 may also be written in Native Code (C++) and HTML/Javascript but this is not covered in these guides</li>
+        <li>If you are coming with no knowledge of <a href="glossary.html#vb">VB</a> or <a href="glossary.hml#csharp">C#</a>, opt for C#</li>
         <li>XAML/C# is directly comparable to HTML/Javascript however,
             <ul class="compact">
                 <li>XAML/C# are much cleaner languages</li>
@@ -49,16 +56,14 @@
     <ul>
         <li>A Windows Phone app is organised into a 'Solution' and 'Projects'</li>
         <li>A 'Solution' groups together Projects that are associated with your application</li>
-        <li>'Projects' are, by example,
+        <li>Usually you just have one project in your solution for the app itself, however there may be other projects, for example,
             <ul class="compact">
-                <li>Your Windows Phone app</li>
-                <li>Unit tests for your Windows Phone app</li>
-                <li>A desktop front-end for your Windows Phone app</li>
-                <li>A web front-end for your Windows Phone app</li>
-                <li>A separate library spun out of the main project</li>
+                <li>unit tests</li>
+                <li>a desktop front-end</li>
+                <li>a web front-end</li>
+                <li>a separate library spun out of the main project</li>
             </ul>
-        <li>Often a Solution only contains one Project (your Windows Phone app)</li>
-        <li>See <a href="project.html">Understanding  Windows Phone Project files</a> for a guide on what the pre-generated Project files do</li>
+        <li>A Window Phone project generates lots of files automatically, see <a href="project.html">Understanding  Windows Phone Project files</a> for a guide on what they do</li>
         <li><code>.cproj</code> or <code>.vbproj</code> and <code>.sln</code> files are just XML. Take a look inside with a text editor to see that they mostly contain references to other files</li>
     </ul>
 

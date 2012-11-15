@@ -64,6 +64,20 @@ namespace YourAppName
     }
 }</code></pre> can be accessed elsewhere as <code>YourAppName.MyClassName.MyStringProperty</code> and <code>YourAppName.MyClassName.MyStringMethod()</code>. 
         </li>
+        <li>Typical C# code makes frequent use of getters and setters. The syntax for this is as follows,
+<pre><code>private string _myString;
+public string MyString 
+{
+    get 
+    {
+        return this._value;
+    }
+    set 
+    {
+        this._myString = value;
+    }
+}</code></pre> the convention for private variables is to prefix with an underscore
+        </li>
         <li>C# names can be very verbose but Visual Studio makes this easy to handle</li>
     </ul>
 
@@ -72,6 +86,7 @@ namespace YourAppName
     <p>C# is strongly typed. A few different techniques are used which allow us to use and write code which can accept a wide range of objects</p>
 
     <ul>
+    <a name="generics"></a>
     <li>Generics
         <ul class="compact">
             <li>Allows the type to be specified when instantiating the object e.g. <pre><code>List&lt;MyClassName&gt; myListOfClasses = new List&lt;MyClassName&gt;();</code></pre> creates a new <code>List</code> object which contains 'MyClassName' objects
@@ -79,6 +94,7 @@ namespace YourAppName
         </ul>
     </li>
         
+    <a name="boxing"></a>
     <li>Boxing/Unboxing
         <ul class="compact">
             <li>All C# objects inherit from <code>object</code></li>
@@ -91,6 +107,7 @@ namespace YourAppName
         </ul>
     </li>
         
+    <a name="interface"></a>
     <li>Interfaces
         <ul class="compact">
             <li>An interface in C# specifies a set of methods or properties that a class must implement to comply with that interface. Code can then be written that accepts the interface as a type and subsequently assumes that only these methods or properties exist.</li>
@@ -102,6 +119,7 @@ namespace YourAppName
 
 </ul>
 
+<a name="misc"></a>
 <h2>Miscelleneous tips</h2>
 
 <ul>
