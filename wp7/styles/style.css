@@ -66,3 +66,32 @@ h2#tagline {
 h1 {
     font-size: 3em;
 }
+
+table {
+  border-spacing: 0px;
+  margin: 0px 0px 10px 40px;
+  /* margin: 0px auto 10px auto; */
+  
+}
+
+caption {
+  font-style: italic;
+}
+
+table tr:first-child th {
+    border-top: 2px solid black;
+    border-bottom: 1px solid black;
+}
+
+table tr:last-child td {
+    border-bottom: 2px solid black;
+}
+
+td, th {
+  padding-left: 1em;
+}
+
+th {
+  font-weight: normal;
+  text-align: center;
+}

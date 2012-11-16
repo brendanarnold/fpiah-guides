@@ -57,6 +57,10 @@
         <dd>The base XAML page of the project where application-wide XAML resources are kept</dd>
         <dt><a name="appmanifest">AppManifest.xml</a></dt>
         <dd>File containing a list of extra files included in the deployed Windows Phone app</dd>
+        <dt><a name="attributecsharp">Attribute (C#)</a></dt>
+        <dd>Attributes are some metadata about a class, property or method. An attribute is specified in square brackets on the line before the class, property or method declaration</dd>
+        <dt><a name="attributexaml">Attribute (XAML)</a></dt>
+        <dd>Attributes are a general property of XML markup which specifies further information about an XML element e.g. <code>&lt;TextBlock Text=&quot;Some text here&quot; Visibility=&quot;Collapsed&quot; /&gt;</code>, here the XAML element <code>TextBlock</code> has defined the attributes <code>Visibility</code> and <code>Text</code>.</dd>
         
     </dl>
 
@@ -80,7 +84,9 @@
         <dd>The principal .NET language, broadly similar in style to C++ and Java</dd>
         <dt><a name="codebehind">Code-behind file</a></dt>
         <dd>The C#/VB file that is automatically created with each XAML phone page file. It contains the C#/VB class definition for the phone page</dd>
-        <dt>Converter class</dt>
+        <dt><a name="control">Control</a></dt>
+        <dd>Microsoft speak for a widget e.g. a Button, TextBox or Image</dd>
+        <dt><a name="converter">Converter class</a></dt>
         <dd>A class that implements the IValueConverter <a href="glossary.html#interface">interface</a>. Used to convert values between a XAML attribute and a bound object property</dd>
     </dl>
 
@@ -89,6 +95,10 @@
     </div>
 
     <dl>
+        <dt><a name="datacontextbinding">Data Context (binding)</a></dt>
+        <dd>Bound attributes in XAML only refer to a property name, the data context determines what object these property names refer to. See <a href="binding.html#datacontext">Binding for People in a Hurry</a></dd>
+        <dt><a name="datacontextorm">Data Context (ORM)</a></dt>
+        <dd><code>DataContext</code> is the class for the Linq-To-SQL ORM in Windows Phone. This class caches object that are sent to the database to minimise the amount of slow read/write operations to the database. See <a href="linqtosql.html#implementation">Linq-To-SQL for People in a Hurry</a></dd>
         <dt><a name="delegate">Delegate</a></dt>
         <dd>A method pointer, i.e. a variable that can be set to a method. Used, for example, if you want to pass a method into another method</dd>
     </dl>
@@ -99,6 +109,8 @@
     </div>
 
     <dl>
+        <dt><a name="entityreferences">Entity References</a></dt>
+        <dd><code>EntityRef</code> and <code>EntitySet</code> are <a href="#generics">generic</a> types for loading single referenced object and collections of referenced object respectively. Used in Linq-To-SQL, they represent database relations from a database. They mostly aid with the operation of the ORM (i.e. keeping track of changes) and also delay loading until explicitly needed for performance reasons</dd>
         <dt><a name="express">Express Edition</a></dt>
         <dd>Often Microsoft release Express editions of their software which are the free or low cost versions which are generally not as fully featured as the Professional or Ultimate editions</dd>
         <dt><a name="expressionblend">Expression Blend</a></dt>
@@ -108,6 +120,13 @@
     <div>
         <div class="letter">F</div>
     </div>
+
+    <dl>
+      <dt><a name="foreignkey">Foreign Key</a></dt>
+      <dd>A database entry which refers to the ID of another entry. Forms the cornerstone of a <a name="relationaldatabase">relational database</a>. See <a href="linqtosql.html">Linq-To-SQL for People in a Hurry</a> for more on relational databases</dd>
+    </dl>
+
+  
     <div>
         <div class="letter">G</div>
     </div>
@@ -156,6 +175,8 @@
     <dl>
         <dt><a nmae="objectinitialiser">Object initialiser</a></dt>
         <dd>The handy C# syntax which allows the object properties to be assigned at instantiation. See <a href="csharp.html#misc">C# for people in a Hurry</a></dd>
+        <dt><a name="orm">Object Relational Mapper (ORM)</a></dt>
+        <dd>Code for saving and retrieving objects to and from a database. See <a href="linqtosql.html#orm">Linq-To-SQL for people in a Hurry</a> for more details</dd>
     </dl>
 
     <div>
@@ -164,6 +185,8 @@
     <dl>
         <dt><a name="pattern">Pattern</a></dt>
         <dd>A coding convention. Used all the time in Microsoft speak</dd>    
+        <dt><a name="poco">Plain Old CLR Object (POCO)</a></dt>
+        <dd>A term for any ordinary C# object</dd>
         <dt><a name="project">Project</a></dt>
         <dd>A collection of files and settings that represent the major components of an application in Visual Studio. The project file ends in <code><a href="#.cproj">.cproj</a></code> or <code><a href="#.vbproj">.vbproj</a></code> depending on the .NET language used</li>
     </dl>
@@ -174,6 +197,12 @@
     <div>
         <div class="letter">R</div>
     </div>
+
+    <dl>
+      <dt><a name="relationaldatabase">Relational Database</a></dt>
+      <dd>A database which is optimised for storing relationships between entries through the use of <a name="#foreignkey">foreign keys</a>. See <a href="linqtosql.html">Linq-To-SQL for People in a Hurry</a></dd>
+    </dl>
+
     <div>
         <div class="letter">S</div>
     </div>
@@ -183,6 +212,8 @@
         <dd>The subset of <a href="#wpf">WPF</a> that is designed to be run in a web-browser. Analagous to Adobe's Flash plugin.</dd>
         <dt><a name="solution">Solution</a></dt>
         <dd>A collection of <a href="#project">projects</a> that represents a complete application in Visual Studio. A solution file end with <code><a href="#.sln">.sln</a></code></dd>
+        <dt><a name="sql">Structure Query Language (SQL)</a></dt>
+        <dd>A broadly defined language commonly used to access data in a database</dd>
     </dl>
 
     <div>

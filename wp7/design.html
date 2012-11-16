@@ -1,7 +1,51 @@
-Hub and spoke
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>App Design - Windows Phone Development for People in a Hurry</title>
 
-Typography
 
-Content not chrome
+    <script src="js/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    
 
+    <link rel="stylesheet" href="styles/style.css" type="text/css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="js/highlight/styles/github.css" type="text/css">
+    <link rel="stylesheet" href="styles/filetree/filetree_style.css" type="text/css" media="screen" charset="utf-8">
 
+    <style type="text/css">
+    
+    </style>
+
+  </head>
+  <body>
+    <ul id="nav">
+        <li><a href="index.html">Home</a></li>
+    </ul>
+
+    <div id="mainbody">
+
+    <h2 id="tagline">Windows Phone Development for People in a Hurry</h2>
+
+    <h1>App Design</h1>
+
+    <p>Best to use a Windows Phone to get a feel for the design, however here are some key points,</p>
+
+    <ul>
+      <li>Hub and Spoke navigation
+        <ul class="compact">
+          <li>Where all navigation occurs via a series of hubs, the primary hub being the home screen</li>
+          <li>Where the user drills down into the content (along a 'spoke') and uses the back button to get back out again and not buttons in the user interface (UI)</li>
+          <li>Only allow navigation buttons in the UI to go deeper into the content, not 'sideways' (i.e. across to another spoke) or back</li>
+          <li>For 'sideways' navigation, user should back out to the home screen and then drill down the other path</li>
+          <li>If you need to return as the result of a button press (e.g. saved a new profile), then activate the back button behaviour using,
+<pre><code>if (NavigationService.CanGoBack) NavigationService.GoBack();</code></pre></li>
+        </ul>
+      </li>
+      <li>Some icons for the application bar are built into Blend, but there are also a great set of Creative Commons icons at <a href="http://modernuiicons.com/">Modern UI Icons</a></li>
+      <li>Design should focus on typography rather than chrome. Guideline minimum size for text is 13pt</li>
+      <li>Absolute minimum border around touch activated UI elements should be 7px to avoid tapping the wrong element</li>
+    </ul>
+<!--http://www.youtube.com/watch?v=-eZhOBKiQgo-->
+    </div>
+  </body>
+</html>
