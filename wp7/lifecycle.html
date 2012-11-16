@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>App Lifecycle - Windows Phone Development for People in a Hurry</title>
+
+
+    <script src="js/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <link rel="stylesheet" href="styles/style.css" type="text/css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="js/highlight/styles/github.css" type="text/css">
+    <link rel="stylesheet" href="styles/filetree/filetree_style.css" type="text/css" media="screen" charset="utf-8">
+
+    <style type="text/css">
+    
+    </style>
+
+  </head>
+  <body>
+    <ul id="nav">
+        <li><a href="index.html">Home</a></li>
+    </ul>
+
+    <div id="mainbody">
+
+    <h2 id="tagline">Windows Phone Development for People in a Hurry</h2>
+
+    <h1>App Lifecycle for People in a Hurry</h1>
+
+    <ul>
+      <li>When leaving an app in Windows Phone, it is either 'Deactivated' or 'Closed',
+        <ul class="compact" class="compact">
+          <li>Closing occurs when you reach the home screen hub of the app and push the back button again</li>
+          <li>Deactivating occurs when you push the Home button or when the app is interrupted e.g. by a phone call</li>
+          <li>Closing also occurs if an app was deactivated, tombstoned and then 5 more apps were tombstoned after it (see below)</li>
+        </ul>
+      <li>A closed app is actually removed from memory, anything not in persistent storage (i.e. database, settings dictionary) is lost</li>
+      <li>A deactivated app has all of its state saved until the phone needs the memory at which point the app is 'Tombstoned'</li>
+      <li>A tombstoned app only saves the navigation state and whatever was stored in the global <code>State</code> dictionary</li>
+      <li>Only a maximum of five apps can be tombstoned at a time. Any more than that and the oldest app is closed (and the State dictionary/Navigation state is lost)</li>
+      <li>Hold down the back button on your phone to see a list of tombstoned/deactivated apps</li>
+    </ul> 
+
+    <h2>Preserving state</h2>
+
+    <ul>
+      <li>The App.xaml.cs code-behind file feature four methods for Lifecycle management,
+        <ul class="compact">
+          <li><code>Launching</code> occurs when a new app instance is created</li>
+          <li><code>Closing</code> occurs when then app instance is destroyed</li>
+          <li><code>Activated</code> occurs when the app returns from tombstoning or deactivation</li>
+          <li><code>Deactivated</code> occurs when the app is interrupted</li>
+        </ul>
+      </li>
+      <li>The general rule is to assume that the app will be tombstoned when <code>Deactivated</code> and so relevant state should be saved to the <code>State</code> dictionary here</li>
+      <li>On activation should assume that tombstoning occurred and check the <code>State</code> dictionary for saved values</li>
+      <li>In <code>Closing</code> unsaved data such as half filled forms is (and should be) lost so do not save this kind of information to persistent storage unless you have good reason</li>
+    </ul>
+
+    </div>
+  </body>
+</html>

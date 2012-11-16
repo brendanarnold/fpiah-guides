@@ -26,7 +26,7 @@
 
     <h2 id="tagline">Windows Phone Development for People in a Hurry</h2>
 
-    <h1>XAML</h1>
+    <h1>XAML for People in a Hurry</h1>
 
     <p>XAML is an XML dialect.  If you are familiar with HTML there are really only a couple of things in XAML which may not be immediately obvious</p>
 
@@ -37,9 +37,15 @@
         </li>
     </ul>
 
-    <h2>Code-bheind file</h2>
+    <h2>Code-behind file</h2>
 
-    <p>TODO ...</p>
+    <ul>
+      <li>When a XAML page file is created, a corresponding <code>.cs</code> or <code>.vb</code> file is also created. This is the 'code-behind file'</li>
+      <li>The class defined in the code behind is defined with a <code>partial</code> keyword which means the class is defined in more than one file</li>
+      <li>This other file (ending in <code>.g.i.cs</code> or <code>.g.cs</code> or the VB equivalents) is automatically generated from XAML and contains the <code>InitializeComponent</code> method called in the constructor</li>
+      <li>The debugger occasionally stops in these files, this almost always means there is an error in the XAML (usually a wrong attribute reference)</li>
+      <li>All the XAML elements are available in the code-behind file as a C#/VB object under the <code>this</code> namespace. If the object is not available try building the project (Ctrl+Shift+B) so the <code>.g.cs</code> files are generated</li>
+    </ul>
 
     </div>
   </body>

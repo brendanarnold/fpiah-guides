@@ -53,6 +53,8 @@
     </div>
 
     <dl>
+        <dt><a name="activated">Activated</a></dt>
+        <dd>An activated app is brought back to the foreground from either a <a href="#deactivated">deactivated</a> or <a href="#tombstoned">tombstoned</a> state. See <a href="lifecycle.html">App Lifecycle for People in a  hurry for more details</a></dd>
         <dt><a name="appxaml">App.xaml</a></dt>
         <dd>The base XAML page of the project where application-wide XAML resources are kept</dd>
         <dt><a name="appmanifest">AppManifest.xml</a></dt>
@@ -82,6 +84,8 @@
     <dl>
         <dt><a name="csharp">C#</a></dt>
         <dd>The principal .NET language, broadly similar in style to C++ and Java</dd>
+        <dt><a name="closed">Closed</a></dt>
+        </dd>When an app is exited entirely. Starting a closed app will launch an entirely fresh instance. See <a href="lifecycle.html">App Lifecycle for People in a Hurry</a></dd>
         <dt><a name="codebehind">Code-behind file</a></dt>
         <dd>The C#/VB file that is automatically created with each XAML phone page file. It contains the C#/VB class definition for the phone page</dd>
         <dt><a name="control">Control</a></dt>
@@ -99,6 +103,8 @@
         <dd>Bound attributes in XAML only refer to a property name, the data context determines what object these property names refer to. See <a href="binding.html#datacontext">Binding for People in a Hurry</a></dd>
         <dt><a name="datacontextorm">Data Context (ORM)</a></dt>
         <dd><code>DataContext</code> is the class for the Linq-To-SQL ORM in Windows Phone. This class caches object that are sent to the database to minimise the amount of slow read/write operations to the database. See <a href="linqtosql.html#implementation">Linq-To-SQL for People in a Hurry</a></dd>
+        <dt><a name="deactivated">Deactivated</a></dt>
+        <dd>The app is deactivated when interrupted by e.g. a phone call or when using the Home button. All the state is preserved automatically until <a href="#tombstoned">tombstoned</a>. See <a href="lifecycle.html">App Lifecycle for People in a Hurry</a></dd>
         <dt><a name="delegate">Delegate</a></dt>
         <dd>A method pointer, i.e. a variable that can be set to a method. Used, for example, if you want to pass a method into another method</dd>
     </dl>
@@ -209,9 +215,11 @@
 
     <dl>
         <dt><a name="silverlight">Silverlight</a></dt>
-        <dd>The subset of <a href="#wpf">WPF</a> that is designed to be run in a web-browser. Analagous to Adobe's Flash plugin.</dd>
+        <dd>The subset of <a href="#wpf">WPF</a> that is designed to be run in a web-browser. Analogous to Adobe's Flash plugin.</dd>
         <dt><a name="solution">Solution</a></dt>
         <dd>A collection of <a href="#project">projects</a> that represents a complete application in Visual Studio. A solution file end with <code><a href="#.sln">.sln</a></code></dd>
+        <dt><a name="statedictionary">State Dictionary</a></dt>
+        <dd>A global dictionary object that is preserved whilst <a href="#tombstoned">tombstoned</a>. See <a href="lifecycle.html">App Lfecycle for People in a Hurry</a></dd>
         <dt><a name="sql">Structure Query Language (SQL)</a></dt>
         <dd>A broadly defined language commonly used to access data in a database</dd>
     </dl>
@@ -219,6 +227,12 @@
     <div>
         <div class="letter">T</div>
     </div>
+
+    <dl>
+      <dt><a name="tombstoned">Tombstoning</a></dt>
+      <dd>A <a href="#deactivated">deactivated</a> app is still loaded in memory but if the memory is needed, the system will free up everything but the navigation state and the app's <a href="#statedictionary">State dictionary</a> object. This is tombstoning. When <a href="#activated">activated</a> again these objects are restored. See <a href="lifecycle.html">App Lifecycle for People in a Hurry</a></dd>
+    </dl>
+
     <div>
         <div class="letter">U</div>
     </div>

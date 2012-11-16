@@ -25,7 +25,7 @@
 
     <h2 id="tagline">Windows Phone Development for People in a Hurry</h2>
 
-    <h1>Model, View, View-Model (MVVM)</h1>
+    <h1>Model, View, View-Model (MVVM) for People in a Hurry</h1>
 
     <h2>Introduction</h2>
 
@@ -98,7 +98,7 @@
         <li>Smaller applications usually have one View-Model class for the entire application, larger applications may split so that there is one View-Model class for every XAML page</li>
         <li>A good place for the View-Model object is on the <code>App</code> object which is globally accessible,
             <ul class="compact">
-                <li>Create a public property 'VM' for the View-Model in the App.xaml.cs code-behind. This can be instantiated in the contructor. Now you can access the same View-Model instance anywhere in the app using <code>App.VM</code></li>
+                <li>Create a public property 'VM' for the View-Model in the App.xaml.cs code-behind. This can be instantiated in the constructor. Now you can access the same View-Model instance anywhere in the app using <code>App.VM</code></li>
             </ul>
         </li>
         <li>Write the View-Model so that slow operations do not all occur at the same time when the app is loading e.g. if your app reads a lot of data from a database, only load enough to display the loading page</li>

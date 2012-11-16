@@ -27,7 +27,7 @@
 
     <h2 id="tagline">Windows Phone Development for People in a Hurry</h2>
 
-    <h1>Linq-To-SQL</h1>
+    <h1>Linq-To-SQL for People in a Hurry</h1>
 
     <p>Linq-To-SQL is an <a href="glossary.html#orm">Object-Relational-Mapper (ORM)</a>, i.e. a way of saving and retrieving C# objects to and from a database</p>
 
@@ -39,7 +39,7 @@
       <li>A relational database consists of a set of tables</li>
       <li>Each table is tailored for a particular object type with each row representing one object and each column representing  a property of the object</li>
       <li>There is also an additional column containing a unique ID for the object (usually an integer)</li>
-      <li>N.b. Windows Phone also adds another column for the version. This is to speed up the code when updating the database and is not essential for relational databases in general</li>
+      <li>N.b. For Windows Phone we also add another column for the version. This is to speed up the code when updating the database and is not essential for relational databases in general</li>
     </ul>
   
     <a name="onetomany"></a>
@@ -90,7 +90,13 @@
     <ul>
       <li>There are some cases where you may want a 'Many-to-Many' relationship. e.g. A <code>Book</code> may be bought by many <code>Customer</code> and a <code>Customer</code> may have bought many <code>Book</code></li>
       <li>This can be represented in relational databases using a separate 'join table' which consists of two columns, a foreign key for the <code>Book</code> Id and a foreign key for the <code>Customer</code> Id and there is a row for every relationship</li>
-      <li>This is not easily supported in Linq-To-SQL and you should probably consider making the relationship more simple</li>
+      <li>This is not an easy/efficient way to do this in Linq-To-SQL but here is one workaround,
+        <ul class="compact">
+          <li>Create a new model class which represents a single relationship with a One-To-Many reference to each of the joined classes</li>
+          <li>This will be created and stored in the join table</li>
+          <li>These can be queried reasonably effectively using <a href="csharp.html#linq">Linq subqueries</a></li>
+        </ul>
+      </li>
     </ul>
         
 <a name="orm"></a>
@@ -113,7 +119,149 @@
   <li><a href="glossary.html#entityreferences">Entity References</a> need to be defined on objects where there is a foreign key relation</li>
 </ul>
 
-<p>You now should be comfortable tackling the <a href="http://msdn.microsoft.com/en-us/library/hh286405.aspx">'How to create a local database app with MVVM for Windows Phone' walkthrough</a> which implements the code described above</p>
+<h3>Template for a Linq-To-SQL DataContext</h3>
+
+<pre><code>namespace VitalStats.Model
+{
+    public class AppDataContext : DataContext
+    {
+        public AppDataContext(string connectionString) : base(connectionString) 
+        {
+        }
+
+        public Table<Profile> Profiles;
+
+        public Table<Stat> Orders;
+
+    }
+}</code></pre>
+
+<h3>Template for a Model class</h3>
+
+<pre><code>
+[Table]
+public class MyModelClass : INotifyPropertyChanged, INotifyPropertyChanging
+{
+
+    // ... Constructor, properties not saved to database and methods here ...
+
+
+    // Example simple string property
+    private string _name;
+    [Column]
+    public string Name
+    {
+        get {return _name;}
+        set
+        {
+            if (_name != value)
+            {
+                NotifyPropertyChanging("Name");
+                _name = value;
+                NotifyPropertyChanged("Name");
+            }
+        }
+    }
+    
+    // Always include an ID column defined as follows
+    private int _id;
+    [Column(IsPrimaryKey = true, IsDbGenerated = true, DbType = "INT NOT NULL Identity", 
+        CanBeNull = false, AutoSync = AutoSync.OnInsert)]
+    public int Id
+    {
+        get {return _id;}
+        set
+        {
+            if (_id != value)
+            {
+                NotifyPropertyChanging("Id");
+                _id = value;
+                NotifyPropertyChanged("Id");
+            }
+        }
+    }
+
+    // Always include a version column. Improves performance when updating the 
+    // database schema
+    [Column(IsVersion = true)]
+    private Binary _version;
+
+    // Need to implement this for the Linq-To-SQL ORM to work properly
+    public event PropertyChangingEventHandler PropertyChanging;
+    private void NotifyPropertyChanging(string propertyName)
+    {
+        if (PropertyChanging != null)
+        {
+            PropertyChanging(this, new PropertyChangingEventArgs(propertyName));
+        }
+    }
+
+    // Useful to implement INotifyPropertyChanged so can do effective Binding
+    public event PropertyChangedEventHandler PropertyChanged;
+    private void NotifyPropertyChanged(string propertyName)
+    {
+        if (PropertyChanged != null)
+        {
+            PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+        }
+    }
+
+}</code></pre>
+
+<h3>Template for a Many-To-One reference property</h3>
+
+<p>Additional code for a <code>Profile</code> that references many <code>Order</code> objects,</p>
+
+<p>In the main body of the <code>Profile</code> class,</p>
+
+<pre><code>private EntitySet&lt;Order&gt; _orders;
+
+[AssociationStorage(Storage = "_orders", OtherKey = "_profileId", ThisKey = "Id")]
+public EntitySet&lt;Order&gt; Orders
+{
+  get { return this._orders; }
+  set { this._orders.Assign(value); }
+}
+</code></pre>
+
+<p>In the constructor of the <code>Profile</code> class,</p>
+
+<pre><code>public Profile() {
+
+  // Supply the entityset with code which details how to deal with adding and
+  // removing objects respectively
+  this._orders = new EntitySet&lt;Order&gt;(
+      delegate (Order entity)
+      {
+          this.NotifyPropertyChanging("Orders");
+          entity.Profile = this;
+      },
+      delegate (Order entity)
+      {
+          this.NotifyPropertyChanging("Orders");
+          entity.Profile = null;
+      });
+
+}</code></pre>
+
+<p>In the main body of the <code>Order</code> class,</p>
+
+<pre><code>private EntityRef&lt;Profile&gt; _profile;
+[Association(Storage = "_profile", ThisKey = "_profileId", OtherKey = "Id", IsForeignKey = true)]
+public Profile profile
+{
+    get {return _profile.Entity;}
+    set
+    {
+        NotifyPropertyChanging("Profile");
+        _profile.Entity = value;
+        if (value != null)
+        {
+            _profileId = value.Id;
+        }
+        NotifyPropertyChanging("Profile");
+    }
+}</code></pre>
 
     </div>
   </body>

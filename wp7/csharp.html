@@ -26,7 +26,7 @@
 
     <h2 id="tagline">Windows Phone Development for People in a Hurry</h2>
 
-    <h1>C#</h1>
+    <h1>C# for People in a Hurry</h1>
 
     <p>The following details some aspects of the C# programming language which may be unusual if you are not used to C++ style languages</p>
 
@@ -46,7 +46,7 @@ namespace YourAppName
         <li>Everything you write in C# is inside a class (or struct which is basically a class with no methods), every class is inside a namespace</li>
         <li>The following keywords are used often,
             <ul class="compact">
-                <li><code>this</code> is used to refer to the object instance inside a method. It is automatically implied and so is used for clarity</li>
+                <li><code>this</code> is used to refer to the object instance inside a method. The object namespace is automatically imported into the method scope and so is used for clarity</li>
                 <li><code>base</code> is used to refer to a method or property on an inherited class. Inherited classes are specified as follows <code>public class MyClassName : InheritedClass1, InheritedClass2</code></li>
                 <li><code>new</code> instantiates a new class</li>
             </ul>
@@ -83,7 +83,7 @@ public string MyString
 
     <h2>Generics, Boxing/Unboxing and Interfaces</h2>
 
-    <p>C# is strongly typed. A few different techniques are used which allow us to use and write code which can accept a wide range of objects</p>
+    <p>C# is strongly typed. There are a few techniques which allow us to use and write code which can accept a wide range of objects</p>
 
     <ul>
     <a name="generics"></a>
@@ -104,6 +104,7 @@ public string MyString
     Button b = sender as Button;
     // ... more code here
 }</code></pre> The sender is passed as an <code>object</code> but has to be cast back to a <code>Button</code> before we can access its properties and methods</li>
+          <li>Use the Visual Studio debugger to help determine an objects 'true' type</li>
         </ul>
     </li>
         
@@ -111,7 +112,7 @@ public string MyString
     <li>Interfaces
         <ul class="compact">
             <li>An interface in C# specifies a set of methods or properties that a class must implement to comply with that interface. Code can then be written that accepts the interface as a type and subsequently assumes that only these methods or properties exist.</li>
-            <li>e.g. <code>IEnumerable</code> is an interface. It requires <code>GetEnumerator()</code> to be defined in the class. If a class implements this interface then it can be used in any code that specifies <code>IEnumerable</code> as a type. If code accepts <code>IEnumerable</code> as a type then it can only assume that it has the <code>GetEnuemrator()</code> method</li>
+            <li>e.g. <code>IEnumerable</code> is an interface. It requires <code>GetEnumerator()</code> to be defined in the class. If a class implements this interface then it can be used in any code that specifies <code>IEnumerable</code> as a type. If code accepts <code>IEnumerable</code> as a type then it can only assume that it has the <code>GetEnumerator()</code> method</li>
             <li>In Windows Phone development we most commonly have to implement the <a href="binding.html#converters"><code>IValueConverter</code></a>, the <code>INotifyPropertyChanged</code> and the <code>INotifyPropertyChanging</code> interfaces</li>
         </ul>
     </li>
@@ -120,10 +121,10 @@ public string MyString
 </ul>
 
 <a name="misc"></a>
-<h2>Miscelleneous tips</h2>
+<h2>Miscellaneous tips</h2>
 
 <ul>
-    <li>Object Initializers can initialise properties on instatiation without lots of tedious code in the constructor e.g.<pre><code>Profile p = new Profile(){ 
+    <li>Object Initializers can initialise properties on instantiation without lots of tedious code in the constructor e.g.<pre><code>Profile p = new Profile(){ 
     Name = "Delia",
     Occupation = "Chef",
     FavouriteTeam = new Team() {
@@ -144,14 +145,14 @@ bool wasSuccessful = double.TryParse(someString, out num);</code></pre></li>
 
 
 <ul>
-    <li>Linq is syntax that allows us to filter and manipulate collections of data such as database handles and anything that implements the <code>IEnumerable</code> inerface e.g. <code>List&lt;T&gt;</code> generics,
+    <li>Linq is syntax that allows us to filter and manipulate collections of data such as <a href="linqtosql.html"><code>EntitySet</code></a> objects and anything that implements the <code>IEnumerable</code> interface e.g. <code>List&lt;T&gt;</code> generics,
         <pre><code>var profilesNamedDeliaQuery = from Profile p in myProfiles where p.Name == "Delia" select p</code></pre></li>
     <li>The result is filtered <code>IEnumerable</code> query which has not yet been resolved. To turn into a <code>List&lt;T&gt;</code> use, <pre><code>List&lt;Profile&gt; profilesNamedDelia = profilesNamedDeliaQuery.ToList();</code></pre></li>
     <li>Since an unresolved query are returned this means complex queries can be built up without using lots of memory, e.g.<pre><code>List&lt;string&gt; namesOfProfilesWhoHaveNotPlacedAnOrder = 
     ((from Profile p in myProfiles select p.Name)
         .Except(from Order o in myOrders select o.ClientName)).ToList();</code></pre> the query here is only converted to a <code>List&lt;string&gt;</code> once both of the internal Linq queries have completed</li>
     <li>Windows Phone uses Linq-To-SQL which is a subset of full Linq</li>
-    <li>A good way to test and learn Linq queries is using the <a href="linqpad.html">Linqpad tool</a></li>
+    <li>A good way to test and learn Linq queries is using the <a href="tools.html#linqpad">Linqpad tool</a></li>
 </ul>
 
     </div>

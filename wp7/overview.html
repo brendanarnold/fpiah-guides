@@ -25,11 +25,24 @@
 
     <h2 id="tagline">Windows Phone Development for People in a Hurry</h2>
 
-    <h1>Overview</h1>
+    <h1>Overview for People in a Hurry</h1>
 
-    <h2>Architecture</h2> 
+    <h2>Cost</h2>
 
     <ul>
+      <li>Actually <em>developing</em> a Windows Phone App is free using the free tools</li>
+      <li><em>Publishing</em> the app on the Windows Phone Market will cost about 99 USD per year, however it is free if,
+        <ul class="compact">
+          <li>You are a student eligible for <a href="https://www.dreamspark.com/">Microsoft Dreamspark</a> scheme</li>
+          <li>You are a startup business/freelancer eligible for <a href="http://www.microsoft.com/bizspark/">Microsoft Bizspark</a></li>
+        </ul>
+      </li>
+    </ul>
+
+    <h2>Technical overview</h2> 
+
+    <ul>
+        <li>You will need to be pretty familiar with object-orientated programming</li>
         <li>There are four options for developing for Window Phone, of which we focus on the latter,
             <ul class="compact">
                 <li>HTML/Javascript (introduced in Windows Phone 8)</li>
@@ -39,46 +52,19 @@
             </ul>
         </li>
         <li>The Silverlight Windows Phone platform is a subset of <a href="glossary.html#silverlight">Silverlight</a> which is itself a subset of the <a href="glossary.html#wpf">Windows Presentation Foundation</a>. When searching for solutions first try including 'Windows Phone' then try 'Silverlight', then try 'WPF'</li>
-        <li>The UI for all of the above is written in 'eXtensible Application Markup Language' (XAML) which is a diaect of XML and the backend is written in either C# or Visual Basic (VB)</li>
+        <li>The UI for all of the above is written in 'eXtensible Application Markup Language' (XAML) which is a dialect of XML and the backend is written in either C# or Visual Basic (VB)</li>
         <li>If you are coming with no knowledge of <a href="glossary.html#vb">VB</a> or <a href="glossary.hml#csharp">C#</a>, opt for C#</li>
         <li>XAML/C# is directly comparable to HTML/Javascript however,
             <ul class="compact">
                 <li>XAML/C# are much cleaner languages</li>
                 <li>XAML/C# are tailored for the task of writing applications</li>
                 <li>HTML/Javascript apps takes less changes to port to another platform</li>
-                <li>There is no direct equivelent for CSS although you can save XAML styles and apply them to multiple XAML elements</li>
+                <li>There is no direct equivalent for CSS although you can save XAML styles and apply them to multiple XAML elements</li>
             </ul>
         </li>
     </ul>
 
-    <h2>Solutions and Projects</h2>
-
-    <ul>
-        <li>A Windows Phone app is organised into a 'Solution' and 'Projects'</li>
-        <li>A 'Solution' groups together Projects that are associated with your application</li>
-        <li>Usually you just have one project in your solution for the app itself, however there may be other projects, for example,
-            <ul class="compact">
-                <li>unit tests</li>
-                <li>a desktop front-end</li>
-                <li>a web front-end</li>
-                <li>a separate library spun out of the main project</li>
-            </ul>
-        <li>A Window Phone project generates lots of files automatically, see <a href="project.html">Understanding  Windows Phone Project files</a> for a guide on what they do</li>
-        <li><code>.cproj</code> or <code>.vbproj</code> and <code>.sln</code> files are just XML. Take a look inside with a text editor to see that they mostly contain references to other files</li>
-    </ul>
-
             
-    <h2>Tools</h2>
-
-    <ul>
-        <li>Visual Studio Express is optimised for writing C#/VB code</li>
-        <li>Expression Blend is a design tool that is optimised for generating XAML</li>
-        <li>There is some support for designing XAML pages in Visual Studio and editing C#/VB code in Blend but the experience is better using both tools for their intended tasks</li>
-        <li>Editing XAML code directly is a better experience in Visual Studio</li>
-        <li>The main difference between the free Express edition of Visual Studio and the full version is that you cannot install plugins in the Express edition</li>
-        <li>The SDK includes a Windows Phone Emulator which is a Virtual Machine running the actual Windows Phone operating System</li>
-    </ul>
-
     </div>
   </body>
 </html>
