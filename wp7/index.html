@@ -8,25 +8,32 @@
   </script>
   <link charset="utf-8" href="styles/style.css" media="screen" rel="stylesheet" type="text/css"/>
   <style type="text/css">
+div#header {
+    background: #F09609;
+}
+div#footer a {
+  color: #F09609;
+  text-decoration: none;
+}
   </style>
  </head>
  <body>
-  <div id="mainbody">
-   <ul id="nav">
-    <li>
-     <a href="/">
-      Brendan's Homepage
-     </a>
-    </li>
-    <li>
-     <a href="../">
-      Other FPIAH Guides
-     </a>
-    </li>
-   </ul>
+
+  <div id="header">
+   <div id="home-btn">
+    <a href="../">
+      <img src="images/up_arrow_white.png" />
+      Other guides for People in a Hurry
+    </a>
+   </div>
+
    <h1>
     Windows Phone Development for People in a Hurry
    </h1>
+
+  </div>
+
+  <div id="mainbody">
    <h2>
     Introduction
    </h2>
@@ -35,19 +42,19 @@
    </p>
    <ul>
     <li>
-     are for people who know a bit about object-orientated programming but have not programmed much in a Windows Phone environment
+     are written to be a cheat-sheet/primer to prepare you for Microsoft's
+     <a href="http://msdn.microsoft.com/en-us/library/hh286405.aspx">
+      'How to create a local database app with MVVM for Windows Phone' walkthrough
+     </a>
+    </li>
+    <li>
+     are for people who know a bit about object-orientated programming but have not programmed much in a Microsoft or Windows Phone environment
     </li>
     <li>
      are written for people with the limited capabilities of the free developer tools
     </li>
     <li>
-     makes many decisions for you to get you up to speed as quickly as possible. Later when you are more confident you may decide a different route
-    </li>
-    <li>
-     are written to be somewhere between a cheat-sheet and a primer leading you up to Microsoft's
-     <a href="http://msdn.microsoft.com/en-us/library/hh286405.aspx">
-      'How to create a local database app with MVVM for Windows Phone' walkthrough
-     </a>
+     make many decisions for you to get you up to speed as quickly as possible. Later when you are more confident you may decide a different route
     </li>
     <li>
      only cover 2D Silverlight apps. For writing 3D apps, see
@@ -159,6 +166,24 @@
      </a>
     </li>
    </ul>
+
+    <h2>
+        Contact details
+    </h2>
+
+    <ul>
+        <li>Any feedback, contact <a href="mailto:brendanarnold@outlook.com">brendanarnold@outlook.com</a></li>
+    </ul>
+
+
+  </div>
+  <div id="footer">
+    <!-- <div id="backfooter"> -->
+    <!--   <a href=""><img src="images/back_arrow_mango.png" /> <span>Back</span></a> -->
+    <!-- </div> -->
+    <div id="nextfooter">
+      <a href="overview.html"><span>Begin</span> <img src="images/next_arrow_mango.png" /></a>
+    </div>
   </div>
  </body>
 </html>

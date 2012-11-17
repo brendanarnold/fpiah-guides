@@ -40,12 +40,11 @@ div#footer a {
 
   <div id="mainbody">
 
+  <h2>Overview</h2>
+
    <p>
     The following details some aspects of the C# programming language which may be unusual if you are not used to C++ style languages
    </p>
-   <h2>
-    Basics
-   </h2>
    <ul>
     <li>
      The following is the most basic C# file,
@@ -340,7 +339,7 @@ bool wasSuccessful = double.TryParse(someString, out num);</code></pre>
      <pre><code>List&lt;Profile&gt; profilesNamedDelia = profilesNamedDeliaQuery.ToList();</code></pre>
     </li>
     <li>
-     Since an unresolved query are returned this means complex queries can be bilt up without using lots of memory, e.g.
+     Since an unresolved query are returned this means complex queries can be built up without using lots of memory, e.g.
      <pre><code>List&lt;string&gt; namesOfProfilesWhoHaveNotPlacedAnOrder = 
     ((from Profile p in myProfiles select p.Name)
         .Except(from Order o in myOrders select o.ClientName)).ToList();</code></pre>

@@ -39,6 +39,7 @@ div#footer a {
 
   <div id="mainbody">
 
+  <h2>Overview</h2>
    <ul>
     <li>
      For a summary of what Data Binding is see
@@ -71,7 +72,7 @@ div#footer a {
      A good practice is to define the many XAML Bindings in a phone page by the property that they mirror. The object this property refers to is determined by the 'DataContext'
     </li>
     <li>
-     We can therefore set the DataContext for the whole page which easily allows the bindings to refer to a fake View-Model object at design-time (i.e. when working in Blend) and the actual View-Model object at runtime
+     We can therefore set the DataContext for the whole page which easily allows the bindings to refer to a fake View-Model object at design-time (i.e. when working in Blend) and the actual View-Model object at runtime. The bindings only know about the property names, they do not care if they are on different obect types
     </li>
    </ul>
    <h3>

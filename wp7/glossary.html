@@ -8,26 +8,126 @@
   </script>
   <link charset="utf-8" href="styles/style.css" media="screen" rel="stylesheet" type="text/css"/>
   <style type="text/css">
+
+/* Page styling */
+
+div#header {
+    background: #F09609;
+}
+div#footer a {
+  color: #F09609;
+  text-decoration: none;
+}
+
+div#letterlinks a {
+    background: #F09609;
+    color: #fff;
+    text-decoration: none;
+    font-size: 150%;
+}
+
+/* Letter navigation styling */
+
+div#letterlinks div {
+  float: left;
+  min-width: 40px;
+  min-height: 40px;
+  background: #F09609;
+  margin: 0px 5px 5px 0px;
+  padding: 5px;
+  text-align: center;
+}
+
+div#letterlinks {
+  margin: 30px 0px 30px 0px;
+  width: 100%;
+  overflow: auto;
+}
+
+/* Letter header styling */
+
+div.letterheader {
+    padding: 10px 20px;
+    color: #fff;
+    margin: 10px 0px 0px 0px;
+    width: 100px;
+    background: #F09609;
+    font-size: 150%;
+    overflow: auto;
+    position: relative;
+}
+div.lettercontainer {
+  display: inline-block;
+  float: left;
+  vertical-align: middle;
+}
+div.returntotopcontainer {
+  float: right;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  margin-top: -14px;
+  width: 28px;
+  height: 28px;
+}
   </style>
  </head>
  <body>
-  <ul id="nav">
-   <li>
+  <div id="header">
+   <div id="home-btn">
     <a href="index.html">
-     Home
+      <img src="images/back_arrow_white.png" />
+      Windows Phone Development for People in a Hurry
     </a>
-   </li>
-  </ul>
-  <div id="mainbody">
-   <h2 id="tagline">
-    Windows Phone Development for People in a Hurry
-   </h2>
+   </div>
+
    <h1>
     Glossary
    </h1>
+
+  </div>
+
+  <div id="mainbody">
+
+  <div id="letterlinks">
+    <a href="#symbol"><div>#</div></a>
+    <a href="#a"><div>a</div></a>
+    <a href="#b"><div>b</div></a>
+    <a href="#c"><div>c</div></a>
+    <a href="#d"><div>d</div></a>
+    <a href="#e"><div>e</div></a>
+    <a href="#f"><div>f</div></a>
+    <a href="#g"><div>g</div></a>
+    <a href="#h"><div>h</div></a>
+    <a href="#i"><div>i</div></a>
+    <a href="#j"><div>j</div></a>
+    <a href="#k"><div>k</div></a>
+    <a href="#l"><div>l</div></a>
+    <a href="#m"><div>m</div></a>
+    <a href="#n"><div>n</div></a>
+    <a href="#o"><div>o</div></a>
+    <a href="#p"><div>p</div></a>
+    <a href="#q"><div>q</div></a>
+    <a href="#r"><div>r</div></a>
+    <a href="#s"><div>s</div></a>
+    <a href="#t"><div>t</div></a>
+    <a href="#u"><div>u</div></a>
+    <a href="#v"><div>v</div></a>
+    <a href="#w"><div>w</div></a>
+    <a href="#x"><div>x</div></a>
+    <a href="#y"><div>y</div></a>
+    <a href="#z"><div>z</div></a>
+  </div>
+
    <div>
-    <div class="letter">
-     #
+    <a name="symbol"></a>
+    <div class="letterheader">
+      <div class="lettercontainer">
+        #
+      </div>
+      <div class="returntotopcontainer">
+        <a href="#top"><img src="images/small_up_arrow_white.png" /></a>
+      </div>
     </div>
    </div>
    <dl>
@@ -97,11 +197,16 @@
      The final built file which is deployed to the phone. Is actually a .zip file. Rename to .zip and open to explore contents.
     </dd>
    </dl>
-   <div>
-    <div class="letter">
-     A
+    <a name="a"></a>
+    <div class="letterheader">
+      <div class="lettercontainer">
+        A
+      </div>
+      <div class="returntotopcontainer">
+        <a href="#top"><img src="images/small_up_arrow_white.png" /></a>
+      </div>
     </div>
-   </div>
+
    <dl>
     <dt>
      <a name="activated">
@@ -171,11 +276,16 @@
      .
     </dd>
    </dl>
-   <div>
-    <div class="letter">
-     B
+    <a name="b"></a>
+    <div class="letterheader">
+      <div class="lettercontainer">
+        B
+      </div>
+      <div class="returntotopcontainer">
+        <a href="#top"><img src="images/small_up_arrow_white.png" /></a>
+      </div>
     </div>
-   </div>
+
    <dl>
     <dt>
      <a name="binding">
@@ -208,11 +318,16 @@
      </a>
     </dd>
    </dl>
-   <div>
-    <div class="letter">
-     C
+    <a name="c"></a>
+    <div class="letterheader">
+      <div class="lettercontainer">
+        C
+      </div>
+      <div class="returntotopcontainer">
+        <a href="#top"><img src="images/small_up_arrow_white.png" /></a>
+      </div>
     </div>
-   </div>
+
    <dl>
     <dt>
      <a name="csharp">
@@ -262,11 +377,16 @@
      . Used to convert values between a XAML attribute and a bound object property
     </dd>
    </dl>
-   <div>
-    <div class="letter">
-     D
+    <a name="d"></a>
+    <div class="letterheader">
+      <div class="lettercontainer">
+        D
+      </div>
+      <div class="returntotopcontainer">
+        <a href="#top"><img src="images/small_up_arrow_white.png" /></a>
+      </div>
     </div>
-   </div>
+
    <dl>
     <dt>
      <a name="datacontextbinding">
@@ -317,11 +437,16 @@
      A method pointer, i.e. a variable that can be set to a method. Used, for example, if you want to pass a method into another method
     </dd>
    </dl>
-   <div>
-    <div class="letter">
-     E
+    <a name="e"></a>
+    <div class="letterheader">
+      <div class="lettercontainer">
+        E
+      </div>
+      <div class="returntotopcontainer">
+        <a href="#top"><img src="images/small_up_arrow_white.png" /></a>
+      </div>
     </div>
-   </div>
+
    <dl>
     <dt>
      <a name="entityreferences">
@@ -363,11 +488,16 @@
      markup
     </dd>
    </dl>
-   <div>
-    <div class="letter">
-     F
+    <a name="f"></a>
+    <div class="letterheader">
+      <div class="lettercontainer">
+        F
+      </div>
+      <div class="returntotopcontainer">
+        <a href="#top"><img src="images/small_up_arrow_white.png" /></a>
+      </div>
     </div>
-   </div>
+
    <dl>
     <dt>
      <a name="foreignkey">
@@ -386,11 +516,16 @@
      for more on relational databases
     </dd>
    </dl>
-   <div>
-    <div class="letter">
-     G
+    <a name="g"></a>
+    <div class="letterheader">
+      <div class="lettercontainer">
+        G
+      </div>
+      <div class="returntotopcontainer">
+        <a href="#top"><img src="images/small_up_arrow_white.png" /></a>
+      </div>
     </div>
-   </div>
+
    <dl>
     <dt>
      <a name="generics">
@@ -412,16 +547,26 @@
      </a>
     </dd>
    </dl>
-   <div>
-    <div class="letter">
-     H
+    <a name="h"></a>
+    <div class="letterheader">
+      <div class="lettercontainer">
+        H
+      </div>
+      <div class="returntotopcontainer">
+        <a href="#top"><img src="images/small_up_arrow_white.png" /></a>
+      </div>
     </div>
-   </div>
-   <div>
-    <div class="letter">
-     I
+
+    <a name="i"></a>
+    <div class="letterheader">
+      <div class="lettercontainer">
+        I
+      </div>
+      <div class="returntotopcontainer">
+        <a href="#top"><img src="images/small_up_arrow_white.png" /></a>
+      </div>
     </div>
-   </div>
+
    <dl>
     <dt>
      <a name="interface">
@@ -435,21 +580,45 @@
      </a>
     </dd>
    </dl>
-   <div>
-    <div class="letter">
-     K
+    <a name="j"></a>
+    <div class="letterheader">
+      <div class="lettercontainer">
+        J
+      </div>
+      <div class="returntotopcontainer">
+        <a href="#top"><img src="images/small_up_arrow_white.png" /></a>
+      </div>
     </div>
-   </div>
-   <div>
-    <div class="letter">
-     L
+
+    <a name="k"></a>
+    <div class="letterheader">
+      <div class="lettercontainer">
+        K
+      </div>
+      <div class="returntotopcontainer">
+        <a href="#top"><img src="images/small_up_arrow_white.png" /></a>
+      </div>
     </div>
-   </div>
-   <div>
-    <div class="letter">
-     M
+
+    <a name="l"></a>
+    <div class="letterheader">
+      <div class="lettercontainer">
+        L
+      </div>
+      <div class="returntotopcontainer">
+        <a href="#top"><img src="images/small_up_arrow_white.png" /></a>
+      </div>
     </div>
-   </div>
+    <a name="m"></a>
+    <div class="letterheader">
+      <div class="lettercontainer">
+        M
+      </div>
+      <div class="returntotopcontainer">
+        <a href="#top"><img src="images/small_up_arrow_white.png" /></a>
+      </div>
+    </div>
+
    <dl>
     <dt>
      <a name="mvvm">
@@ -464,16 +633,26 @@
      for more details
     </dd>
    </dl>
-   <div>
-    <div class="letter">
-     N
+    <a name="n"></a>
+    <div class="letterheader">
+      <div class="lettercontainer">
+        N
+      </div>
+      <div class="returntotopcontainer">
+        <a href="#top"><img src="images/small_up_arrow_white.png" /></a>
+      </div>
     </div>
-   </div>
-   <div>
-    <div class="letter">
-     O
+
+    <a name="o"></a>
+    <div class="letterheader">
+      <div class="lettercontainer">
+        O
+      </div>
+      <div class="returntotopcontainer">
+        <a href="#top"><img src="images/small_up_arrow_white.png" /></a>
+      </div>
     </div>
-   </div>
+
    <dl>
     <dt>
      <a nmae="objectinitialiser">
@@ -499,11 +678,16 @@
      for more details
     </dd>
    </dl>
-   <div>
-    <div class="letter">
-     P
+    <a name="p"></a>
+    <div class="letterheader">
+      <div class="lettercontainer">
+        P
+      </div>
+      <div class="returntotopcontainer">
+        <a href="#top"><img src="images/small_up_arrow_white.png" /></a>
+      </div>
     </div>
-   </div>
+
    <dl>
     <dt>
      <a name="pattern">
@@ -542,16 +726,26 @@
      depending on the .NET language used
     </dd>
    </dl>
-   <div>
-    <div class="letter">
-     Q
+    <a name="q"></a>
+    <div class="letterheader">
+      <div class="lettercontainer">
+        Q
+      </div>
+      <div class="returntotopcontainer">
+        <a href="#top"><img src="images/small_up_arrow_white.png" /></a>
+      </div>
     </div>
-   </div>
-   <div>
-    <div class="letter">
-     R
+
+    <a name="r"></a>
+    <div class="letterheader">
+      <div class="lettercontainer">
+        R
+      </div>
+      <div class="returntotopcontainer">
+        <a href="#top"><img src="images/small_up_arrow_white.png" /></a>
+      </div>
     </div>
-   </div>
+
    <dl>
     <dt>
      <a name="relationaldatabase">
@@ -569,11 +763,16 @@
      </a>
     </dd>
    </dl>
-   <div>
-    <div class="letter">
-     S
+    <a name="s"></a>
+    <div class="letterheader">
+      <div class="lettercontainer">
+        S
+      </div>
+      <div class="returntotopcontainer">
+        <a href="#top"><img src="images/small_up_arrow_white.png" /></a>
+      </div>
     </div>
-   </div>
+
    <dl>
     <dt>
      <a name="silverlight">
@@ -628,11 +827,16 @@
      A broadly defined language commonly used to access data in a database
     </dd>
    </dl>
-   <div>
-    <div class="letter">
-     T
+    <a name="t"></a>
+    <div class="letterheader">
+      <div class="lettercontainer">
+        T
+      </div>
+      <div class="returntotopcontainer">
+        <a href="#top"><img src="images/small_up_arrow_white.png" /></a>
+      </div>
     </div>
-   </div>
+
    <dl>
     <dt>
      <a name="tombstoned">
@@ -658,16 +862,26 @@
      </a>
     </dd>
    </dl>
-   <div>
-    <div class="letter">
-     U
+    <a name="u"></a>
+    <div class="letterheader">
+      <div class="lettercontainer">
+        U
+      </div>
+      <div class="returntotopcontainer">
+        <a href="#top"><img src="images/small_up_arrow_white.png" /></a>
+      </div>
     </div>
-   </div>
-   <div>
-    <div class="letter">
-     V
+
+    <a name="v"></a>
+    <div class="letterheader">
+      <div class="lettercontainer">
+        V
+      </div>
+      <div class="returntotopcontainer">
+        <a href="#top"><img src="images/small_up_arrow_white.png" /></a>
+      </div>
     </div>
-   </div>
+
    <dl>
     <dt>
      <a name="vb">
@@ -686,11 +900,16 @@
      Microsoft's primary coding environment
     </dd>
    </dl>
-   <div>
-    <div class="letter">
-     W
+    <a name="w"></a>
+    <div class="letterheader">
+      <div class="lettercontainer">
+        W
+      </div>
+      <div class="returntotopcontainer">
+        <a href="#top"><img src="images/small_up_arrow_white.png" /></a>
+      </div>
     </div>
-   </div>
+
    <dl>
     <dt>
      <a name="wpf">
@@ -701,11 +920,16 @@
      A development platform for Windows applications based on XAML backed by VB/C#. Recent versions of Microsoft Office are written using WPF.
     </dd>
    </dl>
-   <div>
-    <div class="letter">
-     X
+    <a name="x"></a>
+    <div class="letterheader">
+      <div class="lettercontainer">
+        X
+      </div>
+      <div class="returntotopcontainer">
+        <a href="#top"><img src="images/small_up_arrow_white.png" /></a>
+      </div>
     </div>
-   </div>
+
    <dl>
     <dt>
      <a name="xaml">
@@ -724,16 +948,26 @@
      The 3D game development platform for writing games on Windows Phone and XBox
     </dd>
    </dl>
-   <div>
-    <div class="letter">
-     Y
+    <a name="y"></a>
+    <div class="letterheader">
+      <div class="lettercontainer">
+        Y
+      </div>
+      <div class="returntotopcontainer">
+        <a href="#top"><img src="images/small_up_arrow_white.png" /></a>
+      </div>
     </div>
-   </div>
-   <div>
-    <div class="letter">
-     Z
+
+    <a name="z"></a>
+    <div class="letterheader">
+      <div class="lettercontainer">
+        Z
+      </div>
+      <div class="returntotopcontainer">
+        <a href="#top"><img src="images/small_up_arrow_white.png" /></a>
+      </div>
     </div>
-   </div>
+
   </div>
  </body>
 </html>
