@@ -1,120 +1,253 @@
-
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Tools (Visual Studio/Expression Blend/Linqpad) - Windows Phone Development For People In a Hurry</title>
+ <head>
+  <title>
+   Tools (Visual Studio/Expression Blend/Linqpad) - Windows Phone Development For People In a Hurry
+  </title>
+  <script src="js/highlight/highlight.pack.js">
+  </script>
+  <script>
+   hljs.initHighlightingOnLoad();
+  </script>
+  <script type="text/javascript">
+  </script>
+  <link charset="utf-8" href="styles/style.css" media="screen" rel="stylesheet" type="text/css"/>
+  <link href="js/highlight/styles/github.css" rel="stylesheet" type="text/css"/>
+  <style type="text/css">
+div#header {
+    background: #004C9A;
+}
+div#footer a {
+  color: #004C9A;
+  text-decoration: none;
+}
+  </style>
+ </head>
+ <body>
+  <div id="header">
 
-    <script src="js/highlight/highlight.pack.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-    <script type="text/javascript">
-    
-    </script>
+   <div id="home-btn">
+    <a href="index.html">
+      <img src="images/back_arrow_white.png" />
+      Windows Phone Development for People in a Hurry
+    </a>
+   </div>
 
-    <link rel="stylesheet" href="styles/style.css" type="text/css" media="screen" charset="utf-8">
-    <link rel="stylesheet" href="js/highlight/styles/github.css" type="text/css">
+   <h1>
+    Development Tools (Visual Studio/Expression Blend/Linqpad) for People in a Hurry
+   </h1>
 
-    <style type="text/css">
-    
-    </style>
+  </div>
 
-  </head>
-  <body>
-    <ul id="nav">
-        <li><a href="index.html">Home</a></li>
-    </ul>
+  <div id="mainbody">
 
-    <div id="mainbody">
-
-    <h2 id="tagline">Windows Phone Development for People in a Hurry</h2>
-
-    <h1>Development Tools (Visual Studio/Expression Blend/Linqpad) for People in a Hurry</h1>
-
-    <ul>
-      <li>Visual Studio is used to write C#/VB</li>
-      <li>Expression Blend is used to generate XAML</li>
-      <li>Linqpad is used to test <a href="csharp.html#linq">Linq</a> queries</li>
-      <li>There is some support for designing XAML pages in Visual Studio and editing C#/VB code in Blend but the experience is better using both tools for their intended tasks</li>
-      <li>Editing XAML code directly is a better experience in Visual Studio</li>
-      <li>You can edit a solution in both Visual Studio and Blend at the same time, when you save in one, it will prompt to update the file in the other</li>
-      <li>The SDK includes a Windows Phone Emulator which is a Virtual Machine running the actual Windows Phone operating System</li>
-    </ul>
-    
-    <a name="visualstudio"></a>
-    <h2>Visual Studio Express</h2> 
-
-    <ul>
-        <li>Visual Studio Express is optimised for writing the backend C#/VB</li>
-        <li>The main limitation of the Express edition is that you cannot install extensions</li>
-    </ul>
-
-    <a name="addinglibraries"></a>
-    <h3>Adding libraries</h3>
-
-    <ul>
-      <li>All Windows Phone Silverlight projects will likely use the Windows Phone Toolkit library</li>
-      <li>Visual Studio Express cannot install via Nuget (the recommended way) and so you should download the source from <a href="http://phone.codeplex.com/">the Codeplex site</a></li>
-      <li>Open the downloaded project in a new Visual Studio window</li>
-      <li>Build the project and copy the compiled <code>Microsoft.Phone.Controls.Toolkit.dll</code> file in the <code>&lt;Toolkit Project Folder&gt;\Bin\Debug</code> to the <code>Includes</code> folder in your Project</li>
-      <li>Right-click on the 'References' folder in Visual Studio and select 'Add Reference ...'</li>
-      <li>Browse to the <code>.dll</code> file and accept</li>
-      <li>The Windows Phone toolkit should now be accessible in Blend</li>
-      <li>If the <code>.dll</code> file does not appear in the Solution Explorer, right click on th folder where it is located and choose 'Add Existing Item' and select it</li>
-    </ul>
-
-    <a name="blend"></a>
-    <h2>Expression Blend</h2>
-
-      <p>By far the best way to learn about using Expression Blend is to watch a video of someone using it. A great introduction is Corinna Black's talk <a href="http://www.youtube.com/watch?v=w6hZpst9INs">'How to: Building a Prototype App Using Expression Blend for Windows Phone'</a> with the following notes,</p>
-
-    <ul>
-      <li>I would recommend creating data as she does but only creating one data set and re-create your View-Model object</li>
-      <li>Although there is a 'Show Snap Grid' button at the bottom of the design window, the grid mentioned in the video is part of a deeper design philosophy. <a href="http://www.youtube.com/watch?feature=player_detailpage&v=-eZhOBKiQgo&list=PLD47B34F606CACAF1#t=408s">This video at 6:48</a> explains.</li>
-    </ul>
-
-    <a name="linqpad"></a>
-    <h2>Linqpad</h2>
-
-    <ul>
-        <li>To install <a href="http://www.linqpad.net/">download Linqpad from the website</a></li>
-    </ul>
-
-    <h3>Installing a database for the Linqpad tutorial</h3>
-
-    <ul>
-      <li>Download and install the 32bit or 64bit <a href="http://www.microsoft.com/en-us/download/details.aspx?id=29062">LocalDB</a> from the Microsoft website</li>
-      <li>Create (or <a href="downloads/DBAdminScripts.zip">download</a>) the following <code>.bat</code> files and unpack them in a suitable place (e.g. <code>C:\Users\&lt;username&gt;\Scripts</code>).  
-
-<p>CreateDBServer.bat</p>
-<pre><code>"C:\Program Files\Microsoft SQL Server\110\Tools\Binn\SqlLocalDB.exe" create DBApp1
+   <ul>
+    <li>
+     Visual Studio is used to write C#/VB
+    </li>
+    <li>
+     Expression Blend is used to generate XAML
+    </li>
+    <li>
+     Linqpad is used to test
+     <a href="csharp.html#linq">
+      Linq
+     </a>
+     queries
+    </li>
+    <li>
+     There is some support for designing XAML pages in Visual Studio and editing C#/VB code in Blend but the experience is better using both tools for their intended tasks
+    </li>
+    <li>
+     Editing XAML code directly is a better experience in Visual Studio
+    </li>
+    <li>
+     You can edit a solution in both Visual Studio and Blend at the same time, when you save in one, it will prompt to update the file in the other
+    </li>
+    <li>
+     The SDK includes a Windows Phone Emulator which is a Virtual Machine running the actual Windows Phone operating System
+    </li>
+   </ul>
+   <a name="visualstudio">
+   </a>
+   <h2>
+    Visual Studio Express
+   </h2>
+   <ul>
+    <li>
+     Visual Studio Express is optimised for writing the backend C#/VB
+    </li>
+    <li>
+     The main limitation of the Express edition is that you cannot install extensions
+    </li>
+   </ul>
+   <a name="addinglibraries">
+   </a>
+   <h3>
+    Adding libraries
+   </h3>
+   <ul>
+    <li>
+     All Windows Phone Silverlight projects will likely use the Windows Phone Toolkit library
+    </li>
+    <li>
+     Visual Studio Express cannot install via Nuget (the recommended way) and so you should download the source from
+     <a href="http://phone.codeplex.com/">
+      the Codeplex site
+     </a>
+    </li>
+    <li>
+     Open the downloaded project in a new Visual Studio window
+    </li>
+    <li>
+     Build the project and copy the compiled
+     <code>
+      Microsoft.Phone.Controls.Toolkit.dll
+     </code>
+     file in the
+     <code>
+      &lt;Toolkit Project Folder&gt;\Bin\Debug
+     </code>
+     to the
+     <code>
+      Includes
+     </code>
+     folder in your Project
+    </li>
+    <li>
+     Right-click on the 'References' folder in Visual Studio and select 'Add Reference ...'
+    </li>
+    <li>
+     Browse to the
+     <code>
+      .dll
+     </code>
+     file and accept
+    </li>
+    <li>
+     The Windows Phone toolkit should now be accessible in Blend
+    </li>
+    <li>
+     If the
+     <code>
+      .dll
+     </code>
+     file does not appear in the Solution Explorer, right click on th folder where it is located and choose 'Add Existing Item' and select it
+    </li>
+   </ul>
+   <a name="blend">
+   </a>
+   <h2>
+    Expression Blend
+   </h2>
+   <p>
+    By far the best way to learn about using Expression Blend is to watch a video of someone using it. A great introduction is Corinna Black's talk
+    <a href="http://www.youtube.com/watch?v=w6hZpst9INs">
+     'How to: Building a Prototype App Using Expression Blend for Windows Phone'
+    </a>
+    with the following notes,
+   </p>
+   <ul>
+    <li>
+     I would recommend creating data as she does but only creating one data set and re-create your View-Model object
+    </li>
+    <li>
+     Although there is a 'Show Snap Grid' button at the bottom of the design window, the grid mentioned in the video is part of a deeper design philosophy.
+     <a href="http://www.youtube.com/watch?feature=player_detailpage&amp;v=-eZhOBKiQgo&amp;list=PLD47B34F606CACAF1#t=408s">
+      This video at 6:48
+     </a>
+     explains.
+    </li>
+   </ul>
+   <a name="linqpad">
+   </a>
+   <h2>
+    Linqpad
+   </h2>
+   <ul>
+    <li>
+     To install
+     <a href="http://www.linqpad.net/">
+      download Linqpad from the website
+     </a>
+    </li>
+   </ul>
+   <h3>
+    Installing a database for the Linqpad tutorial
+   </h3>
+   <ul>
+    <li>
+     Download and install the 32bit or 64bit
+     <a href="http://www.microsoft.com/en-us/download/details.aspx?id=29062">
+      LocalDB
+     </a>
+     from the Microsoft website
+    </li>
+    <li>
+     Create (or
+     <a href="downloads/DBAdminScripts.zip">
+      download
+     </a>
+     ) the following
+     <code>
+      .bat
+     </code>
+     files and unpack them in a suitable place (e.g.
+     <code>
+      C:\Users\&lt;username&gt;\Scripts
+     </code>
+     ).
+     <p>
+      CreateDBServer.bat
+     </p>
+     <pre><code>"C:\Program Files\Microsoft SQL Server\110\Tools\Binn\SqlLocalDB.exe" create DBApp1
 pause</code></pre>
-
-<p>StartDBServer.bat</p>
-<pre><code>"C:\Program Files\Microsoft SQL Server\110\Tools\Binn\SqlLocalDB.exe" start DBApp1
+     <p>
+      StartDBServer.bat
+     </p>
+     <pre><code>"C:\Program Files\Microsoft SQL Server\110\Tools\Binn\SqlLocalDB.exe" start DBApp1
 "C:\Program Files\Microsoft SQL Server\110\Tools\Binn\SqlLocalDB.exe" info DBApp1
 pause</code></pre>
-
-<p>GetInfoDBServer.bat</p>
-<pre><code>"C:\Program Files\Microsoft SQL Server\110\Tools\Binn\SqlLocalDB.exe" info DBApp1
+     <p>
+      GetInfoDBServer.bat
+     </p>
+     <pre><code>"C:\Program Files\Microsoft SQL Server\110\Tools\Binn\SqlLocalDB.exe" info DBApp1
 pause</code></pre>
-
-<p>StopDBServer.bat</p>
-<pre><code>"C:\Program Files\Microsoft SQL Server\110\Tools\Binn\SqlLocalDB.exe" stop DBApp1
+     <p>
+      StopDBServer.bat
+     </p>
+     <pre><code>"C:\Program Files\Microsoft SQL Server\110\Tools\Binn\SqlLocalDB.exe" stop DBApp1
 pause</code></pre>
     </li>
-    <li>To access the database in Linqpad,
-        <ul class="compact">
-            <li>Run the CreateDBServer.bat script</li>
-            <li>Run the StartDBServer.bat script and make a note of the 'Instance pipe name:'</li>
-            <li>In Linqpad click 'Add Connection', choose the 'Default (Linq To SQL)' and enter the pipe name in the 'Server' field, click 'Test' to see if it works</li>
-            <li>Further down select 'Specify new or existing database' enter the name 'test' and click 'Create database' and then 'OK'</li>
-            <li>You should now be able to select the database at the top of the Linqpad window and complete the tutorials</li>
-        </ul>
+    <li>
+     To access the database in Linqpad,
+     <ul class="compact">
+      <li>
+       Run the CreateDBServer.bat script
+      </li>
+      <li>
+       Run the StartDBServer.bat script and make a note of the 'Instance pipe name:'
+      </li>
+      <li>
+       In Linqpad click 'Add Connection', choose the 'Default (Linq To SQL)' and enter the pipe name in the 'Server' field, click 'Test' to see if it works
+      </li>
+      <li>
+       Further down select 'Specify new or existing database' enter the name 'test' and click 'Create database' and then 'OK'
+      </li>
+      <li>
+       You should now be able to select the database at the top of the Linqpad window and complete the tutorials
+      </li>
+     </ul>
     </li>
-
-
-
-
+   </ul>
+  </div>
+  <div id="footer">
+    <div id="backfooter">
+      <a href="mvvm.html"><img src="images/back_arrow_blue.png" /> <span>Back</span></a>
     </div>
-  </body>
+    <div id="nextfooter">
+      <a href="project.html"><span>Next</span> <img src="images/next_arrow_blue.png" /></a>
+    </div>
+  </div>
+ </body>
 </html>
-

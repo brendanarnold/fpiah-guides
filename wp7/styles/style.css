@@ -1,14 +1,27 @@
 
 body {
-    padding: 10%;
-    font-family: "Lucida Sans Unicode", sans-serif;
+    padding: 0;
+    margin: 0;
+    /* padding: 10%; */
+    /* font-family: "Lucida Sans Unicode", sans-serif; */
+    font-family: "Segoe UI", "Helvetica", sans-serif;
 }
 
-h1, h2, h3 {
+h1 {
     font-weight: normal;
+    font-family: "Segoe UI Light", "Helvetica", sans-serif;
 }
+
+h2, h3 {
+    font-weight: normal;
+    /* font-family: "Segoe UI Light", "Helvetica", sans-serif; */
+}
+
 
 div#mainbody {
+  /* margin: 0px 30px 0px 30px; */
+  /* margin: 0px 30px 0px 100px; */
+  margin: 0px 30px 0px 65px;
 }
 
 div.figure {
@@ -61,10 +74,13 @@ ul.linklist > li, ul.compact > li {
 }
 
 h2#tagline {
+  margin: 0px 0px 0px 30px;
 }
 
 h1 {
     font-size: 3em;
+    margin: 0px 30px 0px 100px;
+    padding: 0px 0px 30px 0px;
 }
 
 table {
@@ -94,4 +110,64 @@ td, th {
 th {
   font-weight: normal;
   text-align: center;
+}
+
+/* Glossary link styling */
+a.glossaryterm {
+  text-decoration: none;
+  border-bottom: 1px dotted #999;
+  color: black;
+}
+
+
+code {
+  font-family: Consolas, Monaco, Monospace;
+}
+
+div#header {
+    /* background: #A200FF; */
+    /* background: #004C9A; */
+    /* background: #1BA1E2; */
+    /* background: #A05000; */
+    /* background: #339933; */
+    /* background: #E671B8; */
+    /* background: #E51400; */
+    /* background: #00ABA9; */
+    /* background: #A2C139; */
+    /* background: #D80073; */
+    /* background: #F09609; */
+    color: #fff;
+}
+
+div#home-btn {
+    margin: 30px 0px 0px 30px;
+    padding: 30px 0px 0px 0px;
+  vertical-align: middle;
+}
+
+div#home-btn a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 150%;
+  margin-bottom: 30px;
+}
+
+div#footer {
+  font-size: 150%;
+}
+
+div#footer span {
+}
+
+div#backfooter {
+  float: left;
+  margin-left: 30px;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+div#nextfooter {
+  float: right;
+  margin-right: 30px;
+  margin-top: 30px;
 }
