@@ -46,7 +46,7 @@ div#footer a {
      A Windows Phone app is organised into a 'Solution' and 'Projects'
     </li>
     <li>
-     A 'Solution' groups together Projects that are associated with your application
+     A Solution groups together Projects that are associated with your application
     </li>
     <li>
      Usually you just have one project in your solution for the app itself, however there may be other projects, for example,
@@ -170,10 +170,10 @@ div#footer a {
    </h3>
    <ul>
     <li>
-     Properties folder contains Windows Phone App metadata
+     Properties folder contains Windows Phone App metadata (i.e. data about the app itself such as version number)
     </li>
     <li>
-     Data in these files can be edited safely using the 'Project - YourAppName Properties' window in Visual Studio, otherwise these files can be mostly be left alone.
+     Data in these files can be edited safely using the 'Project - YourAppName Properties' window in Visual Studio, otherwise these files can be mostly be left alone
     </li>
     <li>
      AppManifest.xml contains a list of extra resource files to be included in the final built
@@ -220,10 +220,10 @@ div#footer a {
    </h3>
    <ul>
     <li>
-     App.xaml is the first xaml file loaded by the project when it runs. It does not display anything but is where global XAML snippets are placed
+     App.xaml is the first xaml file loaded by the project when it runs. It does not display anything but is where global XAML styles and other resources are placed
     </li>
     <li>
-     App.xaml.cs properties on this class can be accessed in code under the global
+     App.xaml.cs Properties on this class can be accessed in code under the global
      <code>
       App
      </code>
@@ -231,14 +231,14 @@ div#footer a {
      <a href="mvvm.html">
       View-Model
      </a>
-     instance.  Also provides the app 'Launching', 'Closing', 'Activated' and 'Deactivated' methods used for
+     instance.  Also provides the app <code>Launching</code>, <code>Closing</code>, <code>Activated</code> and <code>Deactivated</code> methods used for
      <a href="lifecycle.html">
       Lifecycle
      </a>
      management
     </li>
     <li>
-     MainPage.xaml is an ordinary Windows Phone XAML page. However it is referenced in WMAppManifest.xml to be the first page loaded when the app starts. When moving to the View folder, be sure to update the reference.
+     MainPage.xaml is an ordinary Windows Phone XAML page. However it is referenced in WMAppManifest.xml to be the first page loaded when the app starts. When moving to the View folder, be sure to update the reference in WMAppManifest.xml
     </li>
    </ul>
   </div>

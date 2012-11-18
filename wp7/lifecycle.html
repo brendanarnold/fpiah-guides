@@ -45,20 +45,27 @@ div#footer a {
    <ul>
     <li>
      When leaving an app in Windows Phone, it is either 'Deactivated' or 'Closed',
-     <ul class="compact">
-      <li>
-       Closing occurs when you reach the home screen hub of the app and push the back button again
-      </li>
-      <li>
-       Deactivating occurs when you push the Home button or when the app is interrupted e.g. by a phone call
-      </li>
-      <li>
-       Closing also occurs if an app was deactivated, tombstoned and then 5 more apps were tombstoned after it (see below)
-      </li>
-     </ul>
     </li>
     <li>
-     A closed app is actually removed from memory, anything not in persistent storage (i.e. database, settings dictionary) is lost
+        Closing actually exits the app and gives back all memory, whereas Deactivating suspends the app, retaining some state in memory
+    </li>
+    <li>
+       Deactivating occurs,
+      <ul class="compact">
+        <li> when you push the Home button or when the app is interrupted e.g. by a phone call
+        </li>
+      </ul>
+    </li>
+    <li>
+      Closing occurs,
+      <ul class="compact">
+        <li>
+ when you reach the home screen hub of the app and push the back button again
+        </li>
+        <li>
+          Closing also occurs if an app was deactivated, tombstoned and then 5 more apps were tombstoned after it (see below)
+        </li>
+      </ul>
     </li>
     <li>
      A deactivated app has all of its state saved until the phone needs the memory at which point the app is 'Tombstoned'

@@ -267,10 +267,10 @@ div#footer a {
      All files in folder are under the 'YourAppName.Model' namespace
     </li>
     <li>
-     Includes files containing the classes for the objects retrieved from your datasource e.g. Profile.cs and Order.cs
+     Includes files containing the classes for the objects retrieved from your <a class="glossaryterm" href="glossary.html#datasource">data source</a> e.g. Profile.cs and Order.cs
     </li>
     <li>
-     StorageInterface.cs is a class that implements the interface to the datasource e.g. database, webservice, XML files (n.b. this is the ToDoDataContext.cs file in the
+     StorageInterface.cs is a class that implements the interface to the <a class="glossaryterm" href="glossary.html#datasource">data source</a> e.g. database, webservice, XML files (n.b. this is the ToDoDataContext.cs file in the
      <a href="http://msdn.microsoft.com/en-us/library/hh286405.aspx">
       Local database app with MVVM for Windows Phone tutorial
      </a>
@@ -280,7 +280,7 @@ div#footer a {
      StorageInitialiser.cs contains a class and objects that populate the database, XML storage etc. on first use with e.g. Order templates. This should contain code that is run once on a fresh install.
     </li>
     <li>
-     StorageMigrater.cs contains code for updating the database, XML storage between different versions of the app. This is run once when the app is updated.
+     StorageMigrater.cs contains code for updating the database or XML storage between different versions of the app so old data files can be updated to the current format. This is run once when the app is updated.
     </li>
    </ul>
    <h2>
