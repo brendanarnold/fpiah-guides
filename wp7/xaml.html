@@ -70,7 +70,7 @@ div#footer a {
      namespace
     </li>
     <li>
-     Any XAML attribute can be bound using the
+     Any XAML attribute can be bound to a C# object using the
      <a href="binding.html#binding">
       Binding sytax
      </a>
@@ -78,6 +78,9 @@ div#footer a {
      <code>
       &lt;TextBlock Text="{Binding Name}" /&gt;
      </code>
+    </li>
+    <li>
+      Some attributes and elements have a period in their name e.g. <code>Grid.Row=&quot;1&quot;</code>. These are only valid when the parent is a particular element, in this case a <code>Grid</code> element
     </li>
    </ul>
    <h2>
@@ -132,6 +135,58 @@ div#footer a {
      files are generated
     </li>
    </ul>
+
+  <h2>Layout elements (StackPanel, Grid, Canvas)</h2>
+
+  <ul>
+  <li>Most XAML element are self explanatory, however the layout elements are not immediately obvious</li>
+  </ul>
+
+  <h3>Default</h3>
+
+  <ul>
+    <li>The default layout places elements on top of each other in the top left e.g.
+    <div class="listimg"><img src="images/layout_default.png" /></div>
+    </li>
+  </ul>
+
+  <h3>StackPanel</h3>
+
+  <ul>
+    <li>
+      <code>StackPanel</code> elements stack child elements either horizontally or vertically depending on the <code>Orientation</code> attribute,
+      <div class="listimg"><img src="images/layout_stackpanel.png" /></div>
+    </li>
+  </ul>
+
+  <h3>Grid</h3>
+
+  <ul>
+    <li>
+      <code>Grid</code> element defines a table-like structure to contain child elements
+    </li>
+    <li>
+      Unlike HTML tables, the child elements specify the cell they belong to using the <code>Grid.Row</code> and <code>Grid.Column</code> attributes
+      <div class="listimg"><img src="images/layout_grid.png" /></div>
+    </li>
+  </ul>
+
+  <h3>Canvas</h3>
+
+  <ul>
+    <li>
+      <code>Canvas</code> element allow for positioning of elements using absolute co-ordinates relative to the canvas
+    </li>
+    <li>
+      Child elements do not have to be within the canvas region and negative positions can be specified
+    </li>
+    <li>
+       Child elements use the <code>Canvas.Top</code>, <code>Canvas.Bottom</code>, <code>Canvas.Right</code> and <code>Canvas.Left</code> attributes to specify position
+      <div class="listimg"><img src="images/layout_canvas.png" /></div>
+    </li>
+  </ul>
+
+
   </div>
   <div id="footer">
     <div id="backfooter">

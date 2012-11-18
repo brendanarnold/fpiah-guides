@@ -194,14 +194,19 @@ div#footer a {
        .dll
       </code>
      </a>
-     that is compiled from the project. Contains things like
+     that is compiled from the project such as
      <code>
       .dll
      </code>
      version number
     </li>
     <li>
-     WMAppManifest.xml contains metadata that is important for the Windows Phone Store such as what permissions are required (i.e. does the app use GPS?) and the company name, version etc. Also contains the reference for the first page loaded in your app (i.e. MainPage.xaml)
+     WMAppManifest.xml contains,
+        <ul class="compact">
+            <li>a list of app capabilities (e.g. the app uses GPS, microphone, push notifications etc.)</li>
+            <li>the company name, version etc.</li>
+            <li>the reference for the first page loaded in your app (i.e. MainPage.xaml)</li>
+        </ul>
     </li>
    </ul>
    <h3>
@@ -223,7 +228,7 @@ div#footer a {
      App.xaml is the first xaml file loaded by the project when it runs. It does not display anything but is where global XAML styles and other resources are placed
     </li>
     <li>
-     App.xaml.cs Properties on this class can be accessed in code under the global
+     App.xaml.cs contains the definition for the global
      <code>
       App
      </code>
