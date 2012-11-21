@@ -1,14 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html id="bglobal">
  <head>
   <title>
-   Windows Phone Development For People In a Hurry
+    
+    Windows Phone Development For People In a Hurry
+
   </title>
-  <script type="text/javascript">
+  <script src="js/highlight.pack.js">
   </script>
-<link rel="stylesheet" type="text/css" href="styles/yui-css.css">
-  <link charset="utf-8" href="styles/style.css" media="screen" rel="stylesheet" type="text/css"/>
+  <script>
+   hljs.initHighlightingOnLoad();
+
+  /* Some Javascript to apply different classes depending on the screen width */
+  function setStyleForSize()
+  {
+    /*if (screen.width <= 480)*/
+    if (window.innerWidth <= 480)
+    {
+        document.body.parentNode.className = "narrow";
+    } 
+    else
+    {
+      document.body.parentNode.className = "wide";
+    }
+  }
+
+  function addEventHandler(oNode, evt, oFn)
+  {
+    if (typeof(window.event) != "undefined")
+    {
+      oNode.attachEvent("on"+evt, oFn);
+    }
+    else
+    {
+      oNode.addEventListener(evt, oFn, true);
+    }
+  }
+  addEventHandler(window, "load", function() { setStyleForSize(); } );
+  addEventHandler(window, "resize", function() { setStyleForSize(); } );
+
+  </script>
+  <link rel="stylesheet" type="text/css" href="styles/styles.css" />
   <style type="text/css">
+
 div#header {
     background: #F09609;
 }
@@ -21,25 +55,35 @@ div#footer a {
     height: 30px; 
     margin-top: -3px;
 }
+
   </style>
  </head>
- <body>
+ <body id="foo">
+
 
   <div id="header">
+
    <div id="home-btn">
+
     <a href="../">
-      <img src="images/up_arrow_white.png" />
+      <img alt="Other guides" src="images/up_arrow_white.png" />
       Other guides for People in a Hurry
     </a>
+
    </div>
 
    <h1>
+
     Windows Phone Development for People in a Hurry
+
    </h1>
 
   </div>
 
+
   <div id="mainbody">
+
+
    <h2>
     Introduction
    </h2>
@@ -198,16 +242,18 @@ div#footer a {
     </ul>
 
 
-
   </div>
+
+
   <div id="footer">
-    <div id="backfooter">
-      <!-- <a href=""><img src="images/back_arrow_mango.png" /> <span>Back</span></a> -->
 
-    </div>
+
     <div id="nextfooter">
-      <a href="overview.html"><span>Begin</span> <img src="images/next_arrow_mango.png" /></a>
+      <a href="overview.html"><span>Next</span> <img alt="Next page" src="images/next_arrow_mango.png" /></a>
     </div>
+
   </div>
+
+
  </body>
 </html>

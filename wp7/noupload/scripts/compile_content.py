@@ -5,7 +5,10 @@ from scss import Scss
 # VERSIONS = ('app', 'web')
 VERSIONS = ('web',)
 TEMPLATE_DIR = "../content"
-DUMP_DIRSTEM = "../build_%s"
+DUMP_DIRSTEM = {
+    'web' : "../../",
+    'app' : "../build_app/",
+}
 BASE_FILESTEM = "%s/base.tmpl"
 ACCENTS = (
     ('mango'  , '#F09609'),
@@ -70,7 +73,7 @@ for fn in os.listdir(TEMPLATE_DIR):
         src = t.render(base_template=BASE_FILESTEM % version, \
             accent_name=accent_name, accent_hex=accent_hex, \
             prev_page=prev_page, next_page=next_page)
-        out_fn = os.path.join(DUMP_DIRSTEM % version, fn[:-5] + '.html')
+        out_fn = os.path.join(DUMP_DIRSTEM[version], fn[:-5] + '.html')
         out_fh = open(out_fn, 'w')
         out_fh.write(src)
         out_fh.close()
@@ -95,7 +98,7 @@ for version in VERSIONS:
         if fn.endswith('.scss'):
             out_str = out_str + css.compile(fstr)
         
-    out_fn = os.path.join(DUMP_DIRSTEM % version, CSS_DIR, CSS_FILE)
+    out_fn = os.path.join(DUMP_DIRSTEM[version], CSS_DIR, CSS_FILE)
     print out_fn
     out_fh = open(out_fn, 'w')
     out_fh.write(out_str)

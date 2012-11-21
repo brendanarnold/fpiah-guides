@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html id="bglobal">
  <head>
   <title>
     {% block title %}
     {% endblock %}
   </title>
-  <script src="js/highlight/highlight.pack.js">
+  <script src="js/highlight.pack.js">
   </script>
   <script>
    hljs.initHighlightingOnLoad();
@@ -13,13 +13,14 @@
   /* Some Javascript to apply different classes depending on the screen width */
   function setStyleForSize()
   {
-    if (screen.width <= 480)
+    /*if (screen.width <= 480)*/
+    if (window.innerWidth <= 480)
     {
-      document.body.className = "narrow";
+        document.body.parentNode.className = "narrow";
     } 
     else
     {
-      document.body.className = "wide";
+      document.body.parentNode.className = "wide";
     }
   }
 
@@ -51,7 +52,7 @@ div#footer a {
 {% endblock %}
   </style>
  </head>
- <body>
+ <body id="foo">
 
 {% block header %}
   <div id="header">

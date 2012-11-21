@@ -1,13 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html id="bglobal">
  <head>
   <title>
+    
    Glossary - Windows Phone Development For People In a Hurry
+
   </title>
-  <script type="text/javascript">
+  <script src="js/highlight.pack.js">
   </script>
-<link rel="stylesheet" type="text/css" href="styles/yui-css.css" />
-  <link charset="utf-8" href="styles/style.css" media="screen" rel="stylesheet" type="text/css"/>
+  <script>
+   hljs.initHighlightingOnLoad();
+
+  /* Some Javascript to apply different classes depending on the screen width */
+  function setStyleForSize()
+  {
+    /*if (screen.width <= 480)*/
+    if (window.innerWidth <= 480)
+    {
+        document.body.parentNode.className = "narrow";
+    } 
+    else
+    {
+      document.body.parentNode.className = "wide";
+    }
+  }
+
+  function addEventHandler(oNode, evt, oFn)
+  {
+    if (typeof(window.event) != "undefined")
+    {
+      oNode.attachEvent("on"+evt, oFn);
+    }
+    else
+    {
+      oNode.addEventListener(evt, oFn, true);
+    }
+  }
+  addEventHandler(window, "load", function() { setStyleForSize(); } );
+  addEventHandler(window, "resize", function() { setStyleForSize(); } );
+
+  </script>
+  <link rel="stylesheet" type="text/css" href="styles/styles.css" />
   <style type="text/css">
 
 /* Page styling */
@@ -71,24 +104,35 @@ div.returntotopcontainer {
   width: 28px;
   height: 28px;
 }
+
   </style>
  </head>
- <body>
+ <body id="foo">
+
+
   <div id="header">
+
    <div id="home-btn">
+
     <a href="index.html">
-      <img src="images/back_arrow_white.png" />
+      <img alt="Main page" src="images/back_arrow_white.png" />
       Windows Phone Development for People in a Hurry
     </a>
+
    </div>
 
    <h1>
+
     Glossary
+
    </h1>
 
   </div>
 
+
   <div id="mainbody">
+
+
 
   <div id="letterlinks">
     <a href="#symbol"><div>#</div></a>
@@ -971,6 +1015,16 @@ div.returntotopcontainer {
       </div>
     </div>
 
+
+
   </div>
+
+
+  <div id="footer">
+
+
+  </div>
+
+
  </body>
 </html>

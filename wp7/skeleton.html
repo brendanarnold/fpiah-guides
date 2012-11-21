@@ -1,45 +1,83 @@
 <!DOCTYPE html>
-<html>
+<html id="bglobal">
  <head>
   <title>
+    
    Recommended Project Layout - Windows Phone Development for People in a Hurry
+
   </title>
-  <script src="js/highlight/highlight.pack.js">
+  <script src="js/highlight.pack.js">
   </script>
   <script>
    hljs.initHighlightingOnLoad();
+
+  /* Some Javascript to apply different classes depending on the screen width */
+  function setStyleForSize()
+  {
+    /*if (screen.width <= 480)*/
+    if (window.innerWidth <= 480)
+    {
+        document.body.parentNode.className = "narrow";
+    } 
+    else
+    {
+      document.body.parentNode.className = "wide";
+    }
+  }
+
+  function addEventHandler(oNode, evt, oFn)
+  {
+    if (typeof(window.event) != "undefined")
+    {
+      oNode.attachEvent("on"+evt, oFn);
+    }
+    else
+    {
+      oNode.addEventListener(evt, oFn, true);
+    }
+  }
+  addEventHandler(window, "load", function() { setStyleForSize(); } );
+  addEventHandler(window, "resize", function() { setStyleForSize(); } );
+
   </script>
-<link rel="stylesheet" type="text/css" href="styles/yui-css.css">
-  <link charset="utf-8" href="styles/style.css" media="screen" rel="stylesheet" type="text/css"/>
-  <link href="js/highlight/styles/github.css" rel="stylesheet" type="text/css"/>
-  <link charset="utf-8" href="styles/filetree/filetree_style.css" media="screen" rel="stylesheet" type="text/css"/>
+  <link rel="stylesheet" type="text/css" href="styles/styles.css" />
   <style type="text/css">
+
 div#header {
-    background: #D80073;
+    background: #339933;
 }
 div#footer a {
-  color: #D80073;
+  color: #339933;
   text-decoration: none;
 }
+
   </style>
  </head>
- <body>
+ <body id="foo">
+
+
   <div id="header">
 
    <div id="home-btn">
+
     <a href="index.html">
-      <img src="images/back_arrow_white.png" />
+      <img alt="Main page" src="images/back_arrow_white.png" />
       Windows Phone Development for People in a Hurry
     </a>
+
    </div>
 
    <h1>
+
     Recommended Project Layout for People in a Hurry
+
    </h1>
 
   </div>
 
+
   <div id="mainbody">
+
 
   <h2>Project layout</h2>
 
@@ -358,14 +396,24 @@ div#footer a {
      App.xaml creates an instance of the ViewModel class which can be referred to anywhere in the app as 'App.VM'
     </li>
    </ul>
+
+
   </div>
+
+
   <div id="footer">
+
     <div id="backfooter">
-      <a href="project.html"><img src="images/back_arrow_dpurple.png" /> <span>Back</span></a>
+      <a href="project.html"><img alt="Previous page" src="images/back_arrow_green.png" /> <span>Back</span></a>
     </div>
+
+
     <div id="nextfooter">
-      <a href="design.html"><span>Next</span> <img src="images/next_arrow_dpurple.png" /></a>
+      <a href="design.html"><span>Next</span> <img alt="Next page" src="images/next_arrow_green.png" /></a>
     </div>
+
   </div>
+
+
  </body>
 </html>
