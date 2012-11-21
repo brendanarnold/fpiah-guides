@@ -22,6 +22,7 @@ ul {
 ul li {
   list-style-type: disc;
   margin-left: 35px;
+  font-size: 100%;
 }
 
 h1 {

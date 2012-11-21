@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>
+    {% block title %}
+    {% endblock %}
+  </title>
+  <script src="js/highlight/highlight.pack.js">
+  </script>
+  <script>
+   hljs.initHighlightingOnLoad();
+
+  /* Some Javascript to apply different classes depending on the screen width */
+  function setStyleForSize()
+  {
+    if (screen.width <= 480)
+    {
+      document.body.className = "narrow";
+    } 
+    else
+    {
+      document.body.className = "wide";
+    }
+  }
+
+  function addEventHandler(oNode, evt, oFn)
+  {
+    if (typeof(window.event) != "undefined")
+    {
+      oNode.attachEvent("on"+evt, oFn);
+    }
+    else
+    {
+      oNode.addEventListener(evt, oFn, true);
+    }
+  }
+  addEventHandler(window, "load", function() { setStyleForSize(); } );
+  addEventHandler(window, "resize", function() { setStyleForSize(); } );
+
+  </script>
+  <link rel="stylesheet" type="text/css" href="styles/styles.css" />
+  <style type="text/css">
+{% block inpagecss %}
+div#header {
+    background: {{ accent_hex }};
+}
+div#footer a {
+  color: {{ accent_hex }};
+  text-decoration: none;
+}
+{% endblock %}
+  </style>
+ </head>
+ <body>
+
+  <div id="header">
+
+   <div id="home-btn">
+{% block topnav %}
+    <a href="index.html">
+      <img alt="Main page" src="images/back_arrow_white.png" />
+      Windows Phone Development for People in a Hurry
+    </a>
+{% endblock %}
+   </div>
+
+   <h1>
+{% block h1 %}{% endblock %}
+   </h1>
+
+  </div>
+
+  <div id="mainbody">
+
+{% block body %}{% endblock %}
+
+  </div>
+
+{% block footer %}
+  <div id="footer">
+{% if prev_page != None %}
+    <div id="backfooter">
+      <a href="{{ prev_page }}.html"><img alt="Previous page" src="images/back_arrow_{{ accent_name }}.png" /> <span>Back</span></a>
+    </div>
+{% endif %}
+{% if next_page != None %}
+    <div id="nextfooter">
+      <a href="{{ next_page }}.html"><span>Next</span> <img alt="Next page" src="images/next_arrow_{{ accent_name }}.png" /></a>
+    </div>
+{% endif %}
+  </div>
+{% endblock %}
+
+ </body>
+</html>

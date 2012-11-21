@@ -1,0 +1,117 @@
+{% extends base_template %}
+
+{% block title %}
+   Overview - Windows Phone Development For People In a Hurry
+{% endblock %}
+
+{% block h1 %}
+    Overview for People in a Hurry
+{% endblock %}
+
+{% block body %}
+
+   <h2>
+    Cost
+   </h2>
+   <ul>
+    <li>
+     Actually
+     <em>
+      developing
+     </em>
+     a Windows Phone App is free using the free tools
+    </li>
+    <li>
+     <em>
+      Publishing
+     </em>
+     the app on the Windows Phone Market will cost about 99 USD per year, however it is free if,
+     <ul class="compact">
+      <li>
+       You are a student eligible for
+       <a href="https://www.dreamspark.com/">
+        Microsoft Dreamspark
+       </a>
+       scheme
+      </li>
+      <li>
+       You are a startup business/freelancer eligible for
+       <a href="http://www.microsoft.com/bizspark/">
+        Microsoft Bizspark
+       </a>
+      </li>
+     </ul>
+    </li>
+   </ul>
+   <h2>
+    Technical overview
+   </h2>
+   <ul>
+    <li>
+     You will need to be pretty familiar with object-orientated programming to program Windows Phone and C#
+    </li>
+    <li>
+     There are four options for developing for Window Phone, of which we focus on the latter,
+     <ul class="compact">
+      <li>
+       HTML/Javascript (introduced in Windows Phone 8)
+      </li>
+      <li>
+       Native C++ (introduced in Windows Phone 8)
+      </li>
+      <li>
+       <a class="glossaryterm" href="glossary.html#xna">
+        XNA platform
+       </a>
+       (for 3D applications)
+      </li>
+      <li>
+       Silverlight platform (for 2D applications)
+      </li>
+     </ul>
+    </li>
+    <li>
+     The Silverlight Windows Phone platform is a subset of
+     <a class="glossaryterm" href="glossary.html#silverlight">
+      Silverlight
+     </a>
+     which is itself a subset of the
+     <a class="glossaryterm" href="glossary.html#wpf">
+      Windows Presentation Foundation
+     </a>
+     . When searching for solutions first try including 'Windows Phone' then try 'Silverlight', then try 'WPF'
+    </li>
+    <li>
+     The UI for all of the above is written in 'eXtensible Application Markup Language' (XAML) which is a dialect of XML and the backend is written in either C# or Visual Basic (VB)
+    </li>
+    <li>
+     If you are coming with no knowledge of
+     <a class="glossaryterm" href="glossary.html#vb">
+      VB
+     </a>
+     or
+     <a href="glossary.hml#csharp">
+      C#
+     </a>
+     , opt for C#
+    </li>
+    <li>
+     XAML/C# is directly comparable to HTML/Javascript however,
+     <ul class="compact">
+      <li>
+       XAML/C# are much cleaner languages
+      </li>
+      <li>
+       XAML/C# are tailored for the task of writing applications
+      </li>
+      <li>
+       HTML/Javascript apps takes less changes to port to another platform
+      </li>
+      <li>
+       There is no direct equivalent for CSS although you can save XAML styles and apply them to multiple XAML elements
+      </li>
+     </ul>
+    </li>
+   </ul>
+{% endblock %}
+

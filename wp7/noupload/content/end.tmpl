@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>
+   Congratulations! - Windows Phone Development For People In a Hurry
+  </title>
+  <script type="text/javascript">
+  /* Some Javascript to apply different classes depending on the screen width */
+  function setStyleForSize()
+  {
+    if (screen.width <= 480)
+    {
+      document.body.className = "narrow";
+    } 
+    else
+    {
+      document.body.className = "wide";
+    }
+  }
+
+  function addEventHandler(oNode, evt, oFn)
+  {
+    if (typeof(window.event) != "undefined")
+    {
+      oNode.attachEvent("on"+evt, oFn);
+    }
+    else
+    {
+      oNode.addEventListener(evt, oFn, true);
+    }
+  }
+  addEventHandler(window, "load", function() { setStyleForSize(); } );
+  addEventHandler(window, "resize", function() { setStyleForSize(); } );
+
+  </script>
+  <link charset="utf-8" href="styles/styles.css" media="screen" rel="stylesheet" type="text/css"/>
+  <style type="text/css">
+body {
+    background: #F09609;
+}
+
+
+p {
+    color: #fff;
+    font-size: 170%;
+    margin: 50px 30px 50px 100px;
+}
+
+h1 {
+    color: #fff;
+    padding: 50px 0px 50px 0px;
+    font-size: 450%;
+}
+div#onwardscontainer {
+    overflow: auto;
+}
+div#backcontainer {
+    overflow: auto;
+}
+div#onwardscontainer a {
+    color: white;
+    text-decoration: none;
+    font-size: 150%;
+}
+
+div#backcontainer a {
+    color: white;
+    text-decoration: none;
+    font-size: 150%;
+}
+div.img-left {
+    float: left;
+}
+div.text-left {
+    float: left;
+    margin-left: 10px;
+}
+div.img-right {
+    float: right;
+}
+div.text-right {
+    float: right;
+    margin-right: 10px;
+}
+div#mainbody {
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
+
+  </style>
+ </head>
+ <body>
+
+  <div id="mainbody">
+
+    <h1>Congratulations!</h1>
+
+    <p>... you should now be ready to tackle the Local Storage with MVVM walkthrough</p>
+
+   <div id="onwardscontainer">
+    <a href="http://msdn.microsoft.com/en-us/library/windowsphone/develop/hh286405(v=vs.105).aspx">
+    <div class="img-right">
+      <img src="images/next_arrow_white.png" />
+    </div>
+    <div class="text-right">
+      Continue to the walkthrough on the MSDN website
+    </div>
+    </a>
+   </div>
+
+   <div id="backcontainer">
+    <a href="index.html">
+    <div class="img-left">
+      <img src="images/back_arrow_white.png" />
+    </div>
+    <div class="text-left">
+      Back to Windows Phone Development for People in a Hurry
+    </div>
+    </a>
+  </div>
+
+    </div>
+
+  </body>
+</html>
+
