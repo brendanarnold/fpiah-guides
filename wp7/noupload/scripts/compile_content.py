@@ -10,10 +10,10 @@ BASE_FILESTEM = "%s/base.tmpl"
 ACCENTS = (
     ('mango'  , '#F09609'),
     ('lblue'  , '#1BA1E2'),
+    ('red'    , '#E51400'),
     ('purple' , '#A200FF'),
     ('brown'  , '#A05000'),
     ('green'  , '#339933'),
-    ('red'    , '#E51400'),
     ('pink'   , '#E671B8'),
     ('olive'  , '#A2C139'),
     ('teal'   , '#00ABA9'),
