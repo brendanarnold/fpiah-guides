@@ -37,7 +37,11 @@
   <ul>
       <li>
 Below is the page layout for an example app. Arrows show where navigation buttons in the pages point
-  <div style="margin: 15px 20px 0px 0px"><img src="images/hub_spoke.png" /></div>
+{% if version == 'app' %}
+  <div style="margin: 15px 0px 0px 0px"><img width="280px" src="images/hub_spoke.png" /></div>
+{% else %}
+  <div style="margin: 15px 0px 0px 0px"><img src="images/hub_spoke.png" /></div>
+{% endif %}
       </li>
       <li>Hub and Spoke is a design principle that limits where the navigation buttons in your UI should point to ensure a good user experience</li>
       <li>
@@ -54,7 +58,12 @@ Below is the page layout for an example app. Arrows show where navigation button
       </li>
       <li>
        If you need to return as the result of a button press (e.g. saved a new profile), then activate the back button behaviour using,
+{% if version == 'app' %}
+       <pre><code>if (NavigationService.CanGoBack) 
+  NavigationService.GoBack();</code></pre>
+{% else %}
        <pre><code>if (NavigationService.CanGoBack) NavigationService.GoBack();</code></pre>
+{% endif %}
       </li>
    </ul>
 {% endblock %}

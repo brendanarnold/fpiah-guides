@@ -298,6 +298,24 @@
    <h3>
     Template for a Linq-To-SQL DataContext
    </h3>
+{% if version == 'app' %}
+   <pre><code>namespace VitalStats.Model
+{
+  public class AppDataContext : DataContext
+  {
+    public AppDataContext(string 
+      connectionString) 
+      : base(connectionString) 
+    {
+    }
+
+    public Table&lt;Profile&gt; Profiles;
+
+    public Table&lt;Stat&gt; Orders;
+
+  }
+}</code></pre>
+{% else %}
    <pre><code>namespace VitalStats.Model
 {
     public class AppDataContext : DataContext
@@ -312,9 +330,98 @@
 
     }
 }</code></pre>
+{% endif %}
    <h3>
     Template for a Model class
    </h3>
+{% if version == 'app' %}
+   <pre><code>[Table]
+public class MyModelClass : 
+  INotifyPropertyChanged, 
+  INotifyPropertyChanging
+{
+
+  // ... Constructor, properties not saved to 
+  // database and methods here ...
+
+
+  // Example simple string property
+  private string _name;
+  [Column]
+  public string Name
+  {
+    get {return _name;}
+    set
+    {
+      if (_name != value)
+      {
+        NotifyPropertyChanging("Name");
+        _name = value;
+        NotifyPropertyChanged("Name");
+      }
+    }
+  }
+  
+  // Always include an ID column defined as 
+  // follows
+  private int _id;
+  [Column(IsPrimaryKey = true, 
+    IsDbGenerated = true, 
+    DbType = "INT NOT NULL Identity", 
+    CanBeNull = false, 
+    AutoSync = AutoSync.OnInsert)]
+  public int Id
+  {
+    get {return _id;}
+    set
+    {
+      if (_id != value)
+      {
+        NotifyPropertyChanging("Id");
+        _id = value;
+        NotifyPropertyChanged("Id");
+      }
+    }
+  }
+
+  // Always include a version column. Improves 
+  // performance when updating the database 
+  // schema
+  [Column(IsVersion = true)]
+  private Binary _version;
+
+  // Need to implement this for the Linq-To-SQL 
+  // ORM to work properly
+  public event PropertyChangingEventHandler 
+    PropertyChanging;
+  private void NotifyPropertyChanging(string 
+    propertyName)
+  {
+    if (PropertyChanging != null)
+    {
+      PropertyChanging(this, 
+        new PropertyChangingEventArgs
+        (propertyName));
+    }
+  }
+
+  // Useful to implement INotifyPropertyChanged 
+  // so can do effective Binding
+  public event PropertyChangedEventHandler 
+    PropertyChanged;
+  private void NotifyPropertyChanged(string 
+    propertyName)
+  {
+    if (PropertyChanged != null)
+    {
+      PropertyChanged(this, 
+        new PropertyChangedEventArgs
+        (propertyName));
+    }
+  }
+
+}</code></pre>
+{% else %}
    <pre><code>[Table]
 public class MyModelClass : INotifyPropertyChanged, INotifyPropertyChanging
 {
@@ -383,6 +490,7 @@ public class MyModelClass : INotifyPropertyChanged, INotifyPropertyChanging
     }
 
 }</code></pre>
+{% endif %}
    <h3>
     Template for a Many-To-One reference property
    </h3>
@@ -404,6 +512,17 @@ public class MyModelClass : INotifyPropertyChanged, INotifyPropertyChanging
     </code>
     class,
    </p>
+{% if version == 'app' %}
+   <pre><code>private EntitySet&lt;Order&gt; _orders;
+
+[AssociationStorage(Storage = "_orders", 
+    OtherKey = "_profileId", ThisKey = "Id")]
+public EntitySet&lt;Order&gt; Orders
+{
+  get { return this._orders; }
+  set { this._orders.Assign(value); }
+}</code></pre>
+{% else %}
    <pre><code>private EntitySet&lt;Order&gt; _orders;
 
 [AssociationStorage(Storage = "_orders", OtherKey = "_profileId", ThisKey = "Id")]
@@ -412,6 +531,7 @@ public EntitySet&lt;Order&gt; Orders
   get { return this._orders; }
   set { this._orders.Assign(value); }
 }</code></pre>
+{% endif %}
    <p>
     In the constructor of the
     <code>
@@ -419,6 +539,26 @@ public EntitySet&lt;Order&gt; Orders
     </code>
     class,
    </p>
+{% if version == 'app' %}
+   <pre><code>public Profile() {
+
+  // Supply the entityset with code which 
+  // details how to deal with adding and 
+  // removing objects respectively
+  this._orders = new EntitySet&lt;Order&gt;(
+    delegate (Order entity)
+    {
+      this.NotifyPropertyChanging("Orders");
+      entity.Profile = this;
+    },
+    delegate (Order entity)
+    {
+      this.NotifyPropertyChanging("Orders");
+      entity.Profile = null;
+    });
+
+}</code></pre>
+{% else %}
    <pre><code>public Profile() {
 
   // Supply the entityset with code which details how to deal with adding and
@@ -436,6 +576,7 @@ public EntitySet&lt;Order&gt; Orders
       });
 
 }</code></pre>
+{% endif %}
    <p>
     In the main body of the
     <code>
@@ -443,6 +584,26 @@ public EntitySet&lt;Order&gt; Orders
     </code>
     class,
    </p>
+{% if version == 'app' %}
+   <pre><code>private EntityRef&lt;Profile&gt; _profile;
+[Association(Storage = "_profile", 
+  ThisKey = "_profileId", OtherKey = "Id", 
+  IsForeignKey = true)]
+public Profile profile
+{
+  get {return _profile.Entity;}
+  set
+  {
+    NotifyPropertyChanging("Profile");
+    _profile.Entity = value;
+    if (value != null)
+    {
+      _profileId = value.Id;
+    }
+    NotifyPropertyChanging("Profile");
+  }
+}</code></pre>
+{% else %}
    <pre><code>private EntityRef&lt;Profile&gt; _profile;
 [Association(Storage = "_profile", ThisKey = "_profileId", OtherKey = "Id", IsForeignKey = true)]
 public Profile profile
@@ -459,6 +620,7 @@ public Profile profile
         NotifyPropertyChanging("Profile");
     }
 }</code></pre>
+{% endif %}
 
 {% endblock %}
 

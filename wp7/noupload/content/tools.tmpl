@@ -176,24 +176,48 @@
      <p>
       CreateDBServer.bat
      </p>
+{% if version == 'app' %}
+     <pre><code>"C:\Program Files\Microsoft SQL Server\110^
+\Tools\Binn\SqlLocalDB.exe" create DBApp1
+pause</code></pre>
+{% else %}
      <pre><code>"C:\Program Files\Microsoft SQL Server\110\Tools\Binn\SqlLocalDB.exe" create DBApp1
 pause</code></pre>
+{% endif %}
      <p>
       StartDBServer.bat
      </p>
+{% if version == 'app' %}
+     <pre><code>"C:\Program Files\Microsoft SQL Server\110^
+\Tools\Binn\SqlLocalDB.exe" start DBApp1
+pause</code></pre>
+{% else %}
      <pre><code>"C:\Program Files\Microsoft SQL Server\110\Tools\Binn\SqlLocalDB.exe" start DBApp1
 "C:\Program Files\Microsoft SQL Server\110\Tools\Binn\SqlLocalDB.exe" info DBApp1
 pause</code></pre>
+{% endif %}
      <p>
       GetInfoDBServer.bat
      </p>
+{% if version == 'app' %}
+     <pre><code>"C:\Program Files\Microsoft SQL Server\110^
+\Tools\Binn\SqlLocalDB.exe" info DBApp1
+pause</code></pre>
+{% else %}
      <pre><code>"C:\Program Files\Microsoft SQL Server\110\Tools\Binn\SqlLocalDB.exe" info DBApp1
 pause</code></pre>
+{% endif %}
      <p>
       StopDBServer.bat
      </p>
+{% if version == 'app' %}
+     <pre><code>"C:\Program Files\Microsoft SQL Server\110^
+\Tools\Binn\SqlLocalDB.exe" stop DBApp1
+pause</code></pre>
+{% else %}
      <pre><code>"C:\Program Files\Microsoft SQL Server\110\Tools\Binn\SqlLocalDB.exe" stop DBApp1
 pause</code></pre>
+{% endif %}
     </li>
     <li>
      To access the database in Linqpad,

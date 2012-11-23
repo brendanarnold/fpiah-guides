@@ -1,21 +1,90 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>
-{% block title %}{% endblock %}
-    </title>
+<html class="narrow">
+ <head>
+  <title>
+    {% block title %}
+    {% endblock %}
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="js/highlight.pack.js">
+  </script>
+  <script>
+hljs.initHighlightingOnLoad();
 
-    <script type="text/javascript">
-    
-    </script>
+// function fragNav(frag) {
+//     window.location.replace(frag);
+// }
+// function fragNav() {
+//     var els = document.URL.split("#");
+//     if (els.length == 1) {
+//         return;
+//     }
+//     var newurl = '#' + els[els.length - 1];
+//     window.location.replace(newurl);
+// }
+  </script>
+  <link rel="stylesheet" type="text/css" href="styles/styles.css" />
+  <style type="text/css">
+{% block inpagecss %}
+div#header {
+    background: {{ accent_hex }};
+}
+div#footer a {
+  color: {{ accent_hex }};
+  text-decoration: none;
+}
+html.narrow code {
+    font-size: 90%;
+}
+{% endblock %}
+  </style>
+ </head>
+ <body>
 
-    <style type="text/css">
- 
-    </style>
+{% block header %}
+  <div id="header">
 
-  </head>
-  <body>
+   <div id="home-btn">
+{% block topnav %}
+    <a href="index.html">
+    <div id="home-btn-img-container">
+      <img alt="Main page" src="images/back_arrow_white.png" />
+    </div>
+    <div id="home-btn-txt-container">
+      Windows Phone Development for People in a Hurry
+    </div>
+    </a>
+{% endblock %}
+   </div>
 
-  
-  </body>
+   <h1>
+{% block h1 %}{% endblock %}
+   </h1>
+
+  </div>
+{% endblock %}
+
+  <div id="mainbody">
+
+{% block body %}{% endblock %}
+
+  </div>
+
+{% block footer %}
+  <div id="footer">
+{% if prev_page != None %}
+    <div id="backfooter">
+      <a href="{{ prev_page }}.html"><img alt="Previous page" src="images/back_arrow_{{ accent_name }}.png" /> <span>Back</span></a>
+    </div>
+{% endif %}
+{% if next_page != None %}
+    <div id="nextfooter">
+      <a href="{{ next_page }}.html"><span>Next</span> <img alt="Next page" src="images/next_arrow_{{ accent_name }}.png" /></a>
+    </div>
+{% endif %}
+  </div>
+{% endblock %}
+
+ </body>
 </html>
+

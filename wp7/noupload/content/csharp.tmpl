@@ -116,7 +116,12 @@ public string MyString
      <ul class="compact">
       <li>
        Allows the type to be specified when instantiating the object e.g.
+{% if version == 'app' %}
+       <pre><code>List&lt;MyClassName&gt; myListOfClasses 
+    = new List&lt;MyClassName&gt;();</code></pre>
+{% else %}
        <pre><code>List&lt;MyClassName&gt; myListOfClasses = new List&lt;MyClassName&gt;();</code></pre>
+{% endif %}
        creates a new
        <code>
         List
@@ -145,11 +150,20 @@ public string MyString
       </li>
       <li>
        e.g. a typical event handler for a button click
+{% if version == 'app' %}
+       <pre><code>private void cancelBtn_Click(Object sender,
+     EventArgs e) 
+{
+    Button b = sender as Button;
+    // ... more code here
+}</code></pre>
+{% else %}
        <pre><code>private void cancelBtn_Click(Object sender, EventArgs e) 
 {
     Button b = sender as Button;
     // ... more code here
 }</code></pre>
+{% endif %}
        The sender is passed as an
        <code>
         object
@@ -254,8 +268,14 @@ public string MyString
       Convert.ToDouble()
      </code>
      if you know it will work. If you are unsure use,
+{% if version == 'app' %}
+     <pre><code>double num;
+bool wasSuccessful 
+    = double.TryParse(someString, out num);</code></pre>
+{% else %}
      <pre><code>double num;
 bool wasSuccessful = double.TryParse(someString, out num);</code></pre>
+{% endif %}
     </li>
     <li>
      Specifying
@@ -290,7 +310,14 @@ bool wasSuccessful = double.TryParse(someString, out num);</code></pre>
       List&lt;T&gt;
      </code>
      generics,
-     <pre><code>var profilesNamedDeliaQuery = from Profile p in myProfiles where p.Name == "Delia" select p</code></pre>
+{% if version == 'app' %}
+     <pre><code>var profilesNamedDeliaQuery = from Profile p 
+    in myProfiles where p.Name == "Delia" 
+    select p</code></pre>
+{% else %}
+     <pre><code>var profilesNamedDeliaQuery = from Profile p in myProfiles
+     where p.Name == "Delia" select p</code></pre>
+{% endif %}
     </li>
     <li>
      The result is filtered
@@ -302,13 +329,20 @@ bool wasSuccessful = double.TryParse(someString, out num);</code></pre>
       List&lt;T&gt;
      </code>
      use,
+{% if version == 'app' %}
+     <pre><code>List&lt;Profile&gt; profilesNamedDelia 
+    = profilesNamedDeliaQuery.ToList();</code></pre>
+{% else %}
      <pre><code>List&lt;Profile&gt; profilesNamedDelia = profilesNamedDeliaQuery.ToList();</code></pre>
+{% endif %}
     </li>
     <li>
      Since an unresolved query are returned this means complex queries can be built up without using lots of memory, e.g.
-     <pre><code>List&lt;string&gt; namesOfProfilesWhoHaveNotPlacedAnOrder = 
-    ((from Profile p in myProfiles select p.Name)
-        .Except(from Order o in myOrders select o.ClientName)).ToList();</code></pre>
+     <pre><code>List&lt;string&gt; profileNamesWithNoOrders = 
+    ((from Profile p in myProfiles 
+    select p.Name).Except(from Order o 
+    in myOrders select o.ClientName)
+    ).ToList();</code></pre>
      the query here is only converted to a
      <code>
       List&lt;string&gt;

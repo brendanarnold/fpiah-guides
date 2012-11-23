@@ -1,8 +1,9 @@
 /* high level styling */
 
-$indentmargin: 20px;
-$guttermargin: 20px;
+$indentmargin: 10px;
+$guttermargin: 5px;
 $basefontsize: 100%;
+$arrowdim: 50px;
 
 
 html.narrow  {
@@ -11,11 +12,13 @@ html.narrow  {
     -webkit-text-size-adjust: none;
 
     body {
-        width: 480px;
+        font-size: $basefontsize;
+        // max-width: 480px;
+        // min-width: 480px;
         // background: red;
-        padding: 0;
-        margin: 0;
-        font-family: "Segoe UI", "Helvetica", sans-serif;
+        padding: 0px;
+        margin: 0px;
+        font-family: "Segoe WP", "Helvetica", sans-serif;
     }
 
     p, ul, h1, h2, h3 {
@@ -23,27 +26,30 @@ html.narrow  {
     }
 
     ul li {
-        list-style-type: disc;
-        margin-left: $indentmargin;
+        list-style-type: none;
+        background-image: url(../images/bullet.png);
+        background-repeat: no-repeat;
+        background-position: left top;
+        padding-left: $indentmargin;
     }
 
     h1 {
         font-weight: normal;
-        font-family: "Segoe UI Light", "Helvetica", sans-serif;
-        font-size: 300%;
+        font-family: "Segoe WP", "Helvetica", sans-serif;
+        font-size: 150%;
         /* font-size: 3em; */
-        margin: 0px 30px 15px $guttermargin + $indentmargin;
+        margin: 0px 5px 15px $guttermargin + $indentmargin;
         padding: 0px 0px 30px 0px;
     }
 
     h2 {
         font-weight: normal;
-        font-size: 150%;
+        font-size: 140%;
     }
 
     h3 {
         font-weight: normal;
-        font-size: 130%;
+        font-size: 120%;
     }
 
     img {
@@ -63,13 +69,20 @@ html.narrow  {
     }
 
 
-    li {
+    ul li {
         margin-bottom: 10px;
     }
 
-    ul.linklist > li, ul.compact > li {
-        margin-bottom: 0px;
+    ul.linklist > li {
         list-style-type: disc;
+    }
+
+    ul.compact > li {
+        margin-bottom: 0px;
+    }
+
+    .apphide {
+        display: none;
     }
 
     /* Page region stylings */
@@ -112,7 +125,7 @@ html.narrow  {
     
     table {
         border-spacing: 0px;
-        margin: 0px 0px 10px $indentmargin + 10px;
+        margin: 0px 0px 10px $indentmargin;
         /* margin: 0px auto 10px auto; */
         caption {
             font-style: italic;
@@ -136,15 +149,14 @@ html.narrow  {
     /* Glossary link styling */
     a.glossaryterm {
         text-decoration: none;
-        border-bottom: 1px dotted #999;
+        border-bottom: 2px dotted #999;
         color: black;
     }
     
     /* Some image containers */
     
     div.figure {
-        width: 50%;
-        margin: 30px auto;
+        margin: 15px 0px 0px 0px;
     }
     div.listimg {
         margin: 15px 0px 0px 0px;
@@ -155,16 +167,31 @@ html.narrow  {
     div#header {
         color: #fff;
     }
+
+    div#home-btn-img-container {
+        float: left;
+        width: $arrowdim;
+        height: $arrowdim;
+    }
+
+    div#home-btn-txt-container {
+        float: left;
+        width: 250px;
+        margin-left: $guttermargin;
+    }
     
     div#home-btn {
-        margin: 30px 0px 0px $guttermargin;
+        margin: 30px 0px 10px $guttermargin;
         padding: 30px 0px 0px 0px;
-        vertical-align: middle;
+        overflow: auto;
         a {
             text-decoration: none;
             color: #fff;
-            font-size: 150%;
-            margin-bottom: 30px;
+            font-size: 110%;
+        }
+        img {
+            width: $arrowdim;
+            height: $arrowdim;
         }
     }
     
@@ -172,6 +199,10 @@ html.narrow  {
     
     div#footer {
         font-size: 150%;
+        img {
+            width: $arrowdim;
+            height: $arrowdim;
+        }
     }
     
     div#backfooter {

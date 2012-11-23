@@ -2,12 +2,12 @@ import os
 from jinja2 import Template, FileSystemLoader, Environment
 from scss import Scss
 
-# VERSIONS = ('app', 'web')
-VERSIONS = ('web',)
+VERSIONS = ('app', 'web')
+# VERSIONS = ('web',)
 TEMPLATE_DIR = "../content"
 DUMP_DIRSTEM = {
     'web' : "../../",
-    'app' : "../build_app/",
+    'app' : "../../../../../WindowsPhone/WindowPhoneDevelopmentFPIAH/WindowPhoneDevelopmentFPIAH/HTML/",
 }
 BASE_FILESTEM = "%s/base.tmpl"
 ACCENTS = (
@@ -72,7 +72,7 @@ for fn in os.listdir(TEMPLATE_DIR):
     for version in VERSIONS:
         src = t.render(base_template=BASE_FILESTEM % version, \
             accent_name=accent_name, accent_hex=accent_hex, \
-            prev_page=prev_page, next_page=next_page)
+            prev_page=prev_page, next_page=next_page, version=version)
         out_fn = os.path.join(DUMP_DIRSTEM[version], fn[:-5] + '.html')
         out_fh = open(out_fn, 'w')
         out_fh.write(src)

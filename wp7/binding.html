@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html id="bglobal">
+<html>
  <head>
   <title>
     
    Data Binding - Windows Phone Development for People in a Hurry
 
   </title>
+  <meta name="viewport" content="width=device-width" />
   <script src="js/highlight.pack.js">
   </script>
   <script>
@@ -53,7 +54,7 @@ div#footer a {
 
   </style>
  </head>
- <body id="foo">
+ <body>
 
 
   <div id="header">
@@ -122,12 +123,16 @@ div#footer a {
     <li>
      With a phone page loaded up, In the 'Data' tab to the right of Blend click the icon circled below and select 'Create Sample Data', untick 'Enable sample data when the application is running' and accept
      <div class="figure">
+
       <img src="images/blend_add_sampledata.png"/>
+
      </div>
     </li>
     <li>
      Now the following line appears in App.xaml
+
      <pre><code>&lt;SampleData:SampleDataSource x:Key="SampleDataSource" d:IsDataSource="True"/&gt;</code></pre>
+
      and a new folder appears in the project
     </li>
     <li>
@@ -136,7 +141,9 @@ div#footer a {
       phone
      </code>
      element underneath all the namespace declarations to create a DataContext for the entire page,
+
      <pre><code>d:DataContext="{StaticResource SampleDataSource}"</code></pre>
+
     </li>
     <li>
      Because of the line
@@ -224,11 +231,15 @@ div#footer a {
     </code>
     element,
    </p>
+
    <pre><code>&lt;My_ViewNamespace:BoolToStrings x:Key="BoolToVisibilityConverter"/&gt;</code></pre>
+
    <p>
     then the actual binding,
    </p>
+
    <pre><code>&lt;Canvas Visibility="{Binding IsProtected, Convertor=BoolToVisibilityConverter}" /&gt;</code></pre>
+
    <p>
     This passes the value of the IsProtected property through the BoolToVisibilityConverter class before showing in the UI. Converter classes implement the
     <code>
@@ -236,6 +247,7 @@ div#footer a {
     </code>
     interface like below,
    </p>
+
    <pre><code>public class BoolToVisibilityConverter : System.Windows.Data.IValueConverter
 {
     public object Convert(object value, Type targetType, object parameter, CultureInfo cultureInfo)
@@ -255,6 +267,7 @@ div#footer a {
        return (Visibility)value == Visibility.Visible;
     }
 }</code></pre>
+
    <h3>
     Binding to other XAML elements
    </h3>
@@ -264,7 +277,9 @@ div#footer a {
     </li>
     <li>
      One way to do this is as follows,
+
      <pre><code>&lt;TextBlock Visibility="{Binding ElementName=myTextBox, Path=Visibility}" /&gt;</code></pre>
+
      which binds the
      <code>
       Visibility
@@ -309,6 +324,7 @@ div#footer a {
    <p>
     Use the following template for you View-Model class to do this,
    </p>
+
    <pre><code>// ... using declarations here ...
 
 namespace YourAppName.ViewModel {
@@ -340,6 +356,7 @@ namespace YourAppName.ViewModel {
 
     }
 }</code></pre>
+
    <ul>
     <li>
      The above is for an example property of type string and should work for any other type, however,

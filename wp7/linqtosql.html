@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html id="bglobal">
+<html>
  <head>
   <title>
     
    Linq-To-SQL - Windows Phone Development For People In a Hurry
 
   </title>
+  <meta name="viewport" content="width=device-width" />
   <script src="js/highlight.pack.js">
   </script>
   <script>
@@ -53,7 +54,7 @@ div#footer a {
 
   </style>
  </head>
- <body id="foo">
+ <body>
 
 
   <div id="header">
@@ -368,6 +369,7 @@ div#footer a {
    <h3>
     Template for a Linq-To-SQL DataContext
    </h3>
+
    <pre><code>namespace VitalStats.Model
 {
     public class AppDataContext : DataContext
@@ -382,9 +384,11 @@ div#footer a {
 
     }
 }</code></pre>
+
    <h3>
     Template for a Model class
    </h3>
+
    <pre><code>[Table]
 public class MyModelClass : INotifyPropertyChanged, INotifyPropertyChanging
 {
@@ -453,6 +457,7 @@ public class MyModelClass : INotifyPropertyChanged, INotifyPropertyChanging
     }
 
 }</code></pre>
+
    <h3>
     Template for a Many-To-One reference property
    </h3>
@@ -474,6 +479,7 @@ public class MyModelClass : INotifyPropertyChanged, INotifyPropertyChanging
     </code>
     class,
    </p>
+
    <pre><code>private EntitySet&lt;Order&gt; _orders;
 
 [AssociationStorage(Storage = "_orders", OtherKey = "_profileId", ThisKey = "Id")]
@@ -482,6 +488,7 @@ public EntitySet&lt;Order&gt; Orders
   get { return this._orders; }
   set { this._orders.Assign(value); }
 }</code></pre>
+
    <p>
     In the constructor of the
     <code>
@@ -489,6 +496,7 @@ public EntitySet&lt;Order&gt; Orders
     </code>
     class,
    </p>
+
    <pre><code>public Profile() {
 
   // Supply the entityset with code which details how to deal with adding and
@@ -506,6 +514,7 @@ public EntitySet&lt;Order&gt; Orders
       });
 
 }</code></pre>
+
    <p>
     In the main body of the
     <code>
@@ -513,6 +522,7 @@ public EntitySet&lt;Order&gt; Orders
     </code>
     class,
    </p>
+
    <pre><code>private EntityRef&lt;Profile&gt; _profile;
 [Association(Storage = "_profile", ThisKey = "_profileId", OtherKey = "Id", IsForeignKey = true)]
 public Profile profile
@@ -529,6 +539,7 @@ public Profile profile
         NotifyPropertyChanging("Profile");
     }
 }</code></pre>
+
 
 
 

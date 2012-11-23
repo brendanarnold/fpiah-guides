@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html id="bglobal">
+<html>
  <head>
   <title>
     
    Tools (Visual Studio/Expression Blend/Linqpad) - Windows Phone Development For People In a Hurry
 
   </title>
+  <meta name="viewport" content="width=device-width" />
   <script src="js/highlight.pack.js">
   </script>
   <script>
@@ -53,7 +54,7 @@ div#footer a {
 
   </style>
  </head>
- <body id="foo">
+ <body>
 
 
   <div id="header">
@@ -246,24 +247,32 @@ div#footer a {
      <p>
       CreateDBServer.bat
      </p>
+
      <pre><code>"C:\Program Files\Microsoft SQL Server\110\Tools\Binn\SqlLocalDB.exe" create DBApp1
 pause</code></pre>
+
      <p>
       StartDBServer.bat
      </p>
+
      <pre><code>"C:\Program Files\Microsoft SQL Server\110\Tools\Binn\SqlLocalDB.exe" start DBApp1
 "C:\Program Files\Microsoft SQL Server\110\Tools\Binn\SqlLocalDB.exe" info DBApp1
 pause</code></pre>
+
      <p>
       GetInfoDBServer.bat
      </p>
+
      <pre><code>"C:\Program Files\Microsoft SQL Server\110\Tools\Binn\SqlLocalDB.exe" info DBApp1
 pause</code></pre>
+
      <p>
       StopDBServer.bat
      </p>
+
      <pre><code>"C:\Program Files\Microsoft SQL Server\110\Tools\Binn\SqlLocalDB.exe" stop DBApp1
 pause</code></pre>
+
     </li>
     <li>
      To access the database in Linqpad,

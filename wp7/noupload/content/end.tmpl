@@ -5,51 +5,125 @@
 {% endblock %}
 
 {% block inpagecss %}
+body {
+    background: #F09609;
+}
 html {
     background: #F09609;
 }
 
-body.wide p {
+html.wide p {
     color: #fff;
-    font-size: 170%;
+    font-size: 150%;
     margin: 50px 30px 50px 100px;
 }
 
-body.wide h1 {
+html.wide h1 {
     color: #fff;
     padding: 50px 0px 50px 0px;
     font-size: 450%;
 }
-body.wide div#onwardscontainer {
+html.wide div#onwardscontainer {
     overflow: auto;
 }
-body.wide div#backcontainer {
+html.wide div#backcontainer {
     overflow: auto;
     margin-bottom: 50px;
 }
-body.wide a {
+html.wide a {
     color: white;
     text-decoration: none;
     font-size: 150%;
 }
 
-body.wide div.img-left {
+html.wide div.img-left {
     float: left;
 }
-body.wide div.text-left {
+html.wide div.text-left {
     float: left;
     margin-left: 10px;
 }
-body.wide div.img-right {
+html.wide div.img-right {
     float: right;
 }
-body.wide div.text-right {
+html.wide div.text-right {
     float: right;
     margin-right: 10px;
 }
-bdy.wide div#mainbody {
+html.wide div#mainbody {
     margin-left: 60px;
     margin-right: 60px;
+}
+
+/* Narrow */
+
+html.narrow {
+    -ms-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+}
+
+html.narrow body {
+    padding: 0px;
+    margin: 0px;
+    font-family: "Segoe WP", "Helvetica", sans-serif;
+}
+
+html.narrow p {
+    color: #fff;
+    font-size: 130%;
+    margin: 0px 15px 30px 30px;
+}
+
+html.narrow img {
+    width: 50px;
+    height: 50px;
+}
+
+html.narrow h1 {
+    color: #fff;
+    margin: 15px 0px 0px 15px;
+    font-size: 200%;
+}
+html.narrow div#onwardscontainer {
+    overflow: auto;
+    margin-bottom: 20px;
+}
+html.narrow div#backcontainer {
+    overflow: auto;
+    margin-bottom: 20px;
+}
+html.narrow a {
+    color: white;
+    text-decoration: none;
+    font-size: 140%;
+}
+
+html.narrow div.img-left {
+    float: left;
+    width: 50px;
+    height: 50px;
+}
+html.narrow div.text-left {
+    float: left;
+    margin-left: 10px;
+    width: 200px;
+}
+html.narrow div.img-right {
+    float: right;
+    width: 50px;
+    height: 50px;
+}
+html.narrow div.text-right {
+    float: right;
+    margin-right: 10px;
+    width: 200px;
+    text-align: right;
+}
+html.narrow div#mainbody {
+/*
+    margin-left: 20px;
+    margin-right: 20px;
+*/
 }
 
 {% endblock %}

@@ -28,8 +28,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.7"
-     inkscape:cx="279.70978"
-     inkscape:cy="844.0172"
+     inkscape:cx="32.328696"
+     inkscape:cy="772.54279"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -50,7 +50,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -72,69 +72,78 @@
        height="458.68167"
        x="68.214394"
        y="79.891655" />
-    <path
-       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       d="m 470,282.36218 -78.57143,0"
-       id="path2996"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cc"
-       inkscape:export-filename="C:\Users\Brendan\Documents\Code\FPIAH\fpiah-guides\wp7\images\binding_figure.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <path
-       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       d="m 402.85713,268.36361 -14.14213,14.14214 14.14214,14.14214"
-       id="path3768"
-       inkscape:connector-curvature="0"
-       inkscape:export-filename="C:\Users\Brendan\Documents\Code\FPIAH\fpiah-guides\wp7\images\binding_figure.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <path
-       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       d="m 428,330.36218 -150.71846,0"
-       id="path2996-7"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cc"
-       inkscape:export-filename="C:\Users\Brendan\Documents\Code\FPIAH\fpiah-guides\wp7\images\binding_figure.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <path
-       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       d="m 288.7101,316.36361 -14.14213,14.14214 14.14214,14.14214"
-       id="path3768-4"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="ccc"
-       inkscape:export-filename="C:\Users\Brendan\Documents\Code\FPIAH\fpiah-guides\wp7\images\binding_figure.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <text
-       xml:space="preserve"
-       style="font-size:28px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Segoe UI;-inkscape-font-specification:Segoe UI"
-       x="480"
-       y="292.36218"
-       id="text3808"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="C:\Users\Brendan\Documents\Code\FPIAH\fpiah-guides\wp7\images\binding_figure.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90"><tspan
-         sodipodi:role="line"
-         id="tspan3810"
-         x="480"
-         y="292.36218">ViewModel.Name</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:28px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Segoe UI;-inkscape-font-specification:Segoe UI"
-       x="437.97974"
-       y="341.45355"
-       id="text3808-0"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="C:\Users\Brendan\Documents\Code\FPIAH\fpiah-guides\wp7\images\binding_figure.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90"><tspan
-         sodipodi:role="line"
-         id="tspan3810-9"
-         x="437.97974"
-         y="341.45355">ViewModel.IsProtected</tspan></text>
+    <g
+       id="g3039"
+       transform="translate(0,-20)">
+      <g
+         id="g3043"
+         transform="matrix(0.86602541,-0.50000001,0.50000001,0.86602541,-126.73881,156.28225)">
+        <path
+           style="fill:none;stroke:#4d4d4d;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           d="m 287.49208,225.08051 -68.04485,39.28571"
+           id="path2996"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cc"
+           inkscape:export-filename="C:\Users\Brendan\Documents\Code\FPIAH\fpiah-guides\wp7\images\binding_figure.png"
+           inkscape:export-xdpi="90"
+           inkscape:export-ydpi="90" />
+        <path
+           style="fill:none;stroke:#4d4d4d;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           d="m 222.34536,246.52882 -5.17637,19.31852 19.31852,5.17639"
+           id="path3768"
+           inkscape:connector-curvature="0"
+           inkscape:export-filename="C:\Users\Brendan\Documents\Code\FPIAH\fpiah-guides\wp7\images\binding_figure.png"
+           inkscape:export-xdpi="90"
+           inkscape:export-ydpi="90" />
+      </g>
+    </g>
+    <g
+       id="g3052"
+       transform="matrix(0.86602541,0.50000001,-0.50000001,0.86602541,38.147453,-68.683017)">
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Users\Brendan\Documents\Code\FPIAH\fpiah-guides\wp7\images\binding_figure.png"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path2996-7"
+         d="m 428,330.36218 -150.71846,0"
+         style="fill:none;stroke:#4d4d4d;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Users\Brendan\Documents\Code\FPIAH\fpiah-guides\wp7\images\binding_figure.png"
+         sodipodi:nodetypes="ccc"
+         inkscape:connector-curvature="0"
+         id="path3768-4"
+         d="m 288.7101,316.36361 -14.14213,14.14214 14.14214,14.14214"
+         style="fill:none;stroke:#4d4d4d;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    </g>
+    <g
+       id="g3047"
+       transform="translate(-20,27.142858)">
+      <rect
+         y="402.36218"
+         x="168.57143"
+         height="38.57143"
+         width="301.42856"
+         id="rect3014"
+         style="fill:#4d4d4d;fill-opacity:1;stroke:none" />
+      <text
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Users\Brendan\Documents\Code\FPIAH\fpiah-guides\wp7\images\binding_figure.png"
+         sodipodi:linespacing="125%"
+         id="text3808-0"
+         y="431.45355"
+         x="176.55116"
+         style="font-size:28px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Segoe UI;-inkscape-font-specification:Segoe UI"
+         xml:space="preserve"><tspan
+           y="431.45355"
+           x="176.55116"
+           id="tspan3810-9"
+           sodipodi:role="line">ViewModel.IsProtected</tspan></text>
+    </g>
     <rect
        style="fill:#ffc3bd;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
        id="rect3864"
@@ -287,5 +296,30 @@
        height="1.7857143"
        x="223.39285"
        y="561.4693" />
+    <g
+       id="g3034"
+       transform="translate(40,-28.571429)">
+      <rect
+         y="180.40213"
+         x="180.71429"
+         height="38.205826"
+         width="239.64284"
+         id="rect3014-1"
+         style="fill:#4d4d4d;fill-opacity:1;stroke:none" />
+      <text
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Users\Brendan\Documents\Code\FPIAH\fpiah-guides\wp7\images\binding_figure.png"
+         sodipodi:linespacing="125%"
+         id="text3808"
+         y="208.79076"
+         x="190.35715"
+         style="font-size:28px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Segoe UI;-inkscape-font-specification:Segoe UI"
+         xml:space="preserve"><tspan
+           y="208.79076"
+           x="190.35715"
+           id="tspan3810"
+           sodipodi:role="line">ViewModel.Name</tspan></text>
+    </g>
   </g>
 </svg>

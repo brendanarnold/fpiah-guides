@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html id="bglobal">
+<html>
  <head>
   <title>
     
    App Design - Windows Phone Development for People in a Hurry
 
   </title>
+  <meta name="viewport" content="width=device-width" />
   <script src="js/highlight.pack.js">
   </script>
   <script>
@@ -53,7 +54,7 @@ div#footer a {
 
   </style>
  </head>
- <body id="foo">
+ <body>
 
 
   <div id="header">
@@ -107,7 +108,9 @@ div#footer a {
   <ul>
       <li>
 Below is the page layout for an example app. Arrows show where navigation buttons in the pages point
-  <div style="margin: 15px 20px 0px 0px"><img src="images/hub_spoke.png" /></div>
+
+  <div style="margin: 15px 0px 0px 0px"><img src="images/hub_spoke.png" /></div>
+
       </li>
       <li>Hub and Spoke is a design principle that limits where the navigation buttons in your UI should point to ensure a good user experience</li>
       <li>
@@ -124,7 +127,9 @@ Below is the page layout for an example app. Arrows show where navigation button
       </li>
       <li>
        If you need to return as the result of a button press (e.g. saved a new profile), then activate the back button behaviour using,
+
        <pre><code>if (NavigationService.CanGoBack) NavigationService.GoBack();</code></pre>
+
       </li>
    </ul>
 

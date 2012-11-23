@@ -52,12 +52,22 @@
     <li>
      With a phone page loaded up, In the 'Data' tab to the right of Blend click the icon circled below and select 'Create Sample Data', untick 'Enable sample data when the application is running' and accept
      <div class="figure">
+{% if version == 'app' %}
+      <img width="280px" src="images/blend_add_sampledata.png"/>
+{% else %}
       <img src="images/blend_add_sampledata.png"/>
+{% endif %}
      </div>
     </li>
     <li>
      Now the following line appears in App.xaml
+{% if version == 'app' %}
+     <pre><code>&lt;SampleData:SampleDataSource 
+    x:Key="SampleDataSource" 
+    d:IsDataSource="True"/&gt;</code></pre>
+{% else %}
      <pre><code>&lt;SampleData:SampleDataSource x:Key="SampleDataSource" d:IsDataSource="True"/&gt;</code></pre>
+{% endif %}
      and a new folder appears in the project
     </li>
     <li>
@@ -66,7 +76,12 @@
       phone
      </code>
      element underneath all the namespace declarations to create a DataContext for the entire page,
+{% if version == 'app' %}
+     <pre><code>d:DataContext=
+    "{StaticResource SampleDataSource}"</code></pre>
+{% else %}
      <pre><code>d:DataContext="{StaticResource SampleDataSource}"</code></pre>
+{% endif %}
     </li>
     <li>
      Because of the line
@@ -154,11 +169,21 @@
     </code>
     element,
    </p>
+{% if version == 'app' %}
+   <pre><code>&lt;My_ViewNamespace:BoolToStrings 
+    x:Key="BoolToVisibilityConverter"/&gt;</code></pre>
+{% else %}
    <pre><code>&lt;My_ViewNamespace:BoolToStrings x:Key="BoolToVisibilityConverter"/&gt;</code></pre>
+{% endif %}
    <p>
     then the actual binding,
    </p>
+{% if version == 'app' %}
+   <pre><code>&lt;Canvas Visibility="{Binding IsProtected, 
+    Convertor=BoolToVisibilityConverter}" /&gt;</code></pre>
+{% else %}
    <pre><code>&lt;Canvas Visibility="{Binding IsProtected, Convertor=BoolToVisibilityConverter}" /&gt;</code></pre>
+{% endif %}
    <p>
     This passes the value of the IsProtected property through the BoolToVisibilityConverter class before showing in the UI. Converter classes implement the
     <code>
@@ -166,6 +191,33 @@
     </code>
     interface like below,
    </p>
+{% if version == 'app' %}
+   <pre><code>public class BoolToVisibilityConverter 
+    : System.Windows.Data.IValueConverter
+{
+    public object Convert(object value, 
+        Type targetType, object parameter,
+        CultureInfo cultureInfo)
+    {
+        if ((bool)value)
+        {
+            return Visibility.Visible;
+        }
+        else
+        {
+            return Visibility.Collapsed;
+        }
+    }
+
+    public object ConvertBack(object value,
+        Type targetType, object parameter, 
+        CultureInfo cultureInfo)
+    {
+       return (Visibility)value 
+        == Visibility.Visible;
+    }
+}</code></pre>
+{% else %}
    <pre><code>public class BoolToVisibilityConverter : System.Windows.Data.IValueConverter
 {
     public object Convert(object value, Type targetType, object parameter, CultureInfo cultureInfo)
@@ -185,6 +237,7 @@
        return (Visibility)value == Visibility.Visible;
     }
 }</code></pre>
+{% endif %}
    <h3>
     Binding to other XAML elements
    </h3>
@@ -194,7 +247,13 @@
     </li>
     <li>
      One way to do this is as follows,
+{% if version == 'app' %}
+     <pre><code>&lt;TextBlock Visibility="{Binding 
+    ElementName=myTextBox, 
+    Path=Visibility}" /&gt;</code></pre>
+{% else %}
      <pre><code>&lt;TextBlock Visibility="{Binding ElementName=myTextBox, Path=Visibility}" /&gt;</code></pre>
+{% endif %}
      which binds the
      <code>
       Visibility
@@ -239,6 +298,46 @@
    <p>
     Use the following template for you View-Model class to do this,
    </p>
+{% if version == 'app' %}
+   <pre><code>// ... using declarations here ...
+
+namespace YourAppName.ViewModel {
+  public class AppViewModel {
+        
+    // An example string property
+    private string _myString1;
+    public string MyString1
+    {
+      get { return this._myString1; }
+      set {
+        if (this._myString1 != value)
+        {
+          this._myString1 = value;
+          RaisePropertyChanged("MyString");
+        }
+      }
+    }
+
+    // ... Rest of View-Model code here ...
+
+    public event PropertyChangedEventHandler 
+    PropertyChanged;
+
+    protected virtual void 
+      RaisePropertyChanged(string
+      propertyName)
+    {
+      if (this.PropertyChanged != null) 
+      {
+        this.PropertyChanged(this, 
+          new PropertyChangedEventArgs
+          (propertyName));
+      }
+    }
+
+  }
+}</code></pre>
+{% else %}
    <pre><code>// ... using declarations here ...
 
 namespace YourAppName.ViewModel {
@@ -270,6 +369,7 @@ namespace YourAppName.ViewModel {
 
     }
 }</code></pre>
+{% endif %}
    <ul>
     <li>
      The above is for an example property of type string and should work for any other type, however,
