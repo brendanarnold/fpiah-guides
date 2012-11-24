@@ -183,7 +183,7 @@ html.narrow  {
     div#home-btn {
         margin: 30px 0px 10px $guttermargin;
         padding: 30px 0px 0px 0px;
-        overflow: auto;
+        overflow: hidden;
         a {
             text-decoration: none;
             color: #fff;

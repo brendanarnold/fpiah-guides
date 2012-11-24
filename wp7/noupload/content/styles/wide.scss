@@ -3,6 +3,7 @@
 $indentmargin: 35px;
 $guttermargin: 65px;
 $basefontsize: 100%;
+$arrowdim: 108px;
 
 
 html.wide  {
@@ -151,8 +152,22 @@ html.wide  {
     div#header {
         color: #fff;
     }
+
+    div#home-btn-img-container {
+        float: left;
+        width: $arrowdim;
+        height: $arrowdim;
+    }
+
+    div#home-btn-txt-container {
+        position: absolute;
+        bottom: 0px;
+        left: $arrowdim + 20px;
+    }
     
     div#home-btn {
+        position: relative;
+        overflow: hidden;
         margin: 30px $guttermargin 0px $guttermargin;
         padding: 30px 0px 0px 0px;
         vertical-align: middle;
@@ -160,7 +175,6 @@ html.wide  {
             text-decoration: none;
             color: #fff;
             font-size: 150%;
-            margin-bottom: 30px;
         }
     }
     
