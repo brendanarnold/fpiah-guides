@@ -24,6 +24,14 @@ html.wide  {
         margin-left: $indentmargin;
     }
 
+    em {
+        font-style: italic;
+    }
+
+    strong {
+        font-weight: bold;
+    }
+
     h1 {
         font-weight: normal;
         font-family: "Segoe UI Light", "Helvetica", sans-serif;
@@ -40,7 +48,7 @@ html.wide  {
 
     h3 {
         font-weight: normal;
-        font-size: 130%;
+        font-size: 120%;
     }
 
     img {
@@ -60,7 +68,11 @@ html.wide  {
     }
 
 
-    li {
+    ul li {
+        margin-bottom: 10px;
+    }
+
+    ol.tree {
         margin-bottom: 10px;
     }
 

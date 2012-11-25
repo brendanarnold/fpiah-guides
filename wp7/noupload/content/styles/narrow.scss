@@ -18,11 +18,19 @@ html.narrow  {
         // background: red;
         padding: 0px;
         margin: 0px;
-        font-family: "Segoe WP", "Helvetica", sans-serif;
+        font-family: "Segoe WP", "Segoe UI", "Helvetica", sans-serif;
     }
 
     p, ul, h1, h2, h3 {
         margin: 0px 0px 12px 0px;
+    }
+
+    em {
+        font-style: italic;
+    }
+
+    strong {
+        font-weight: bold;
     }
 
     ul li {
@@ -35,7 +43,7 @@ html.narrow  {
 
     h1 {
         font-weight: normal;
-        font-family: "Segoe WP", "Helvetica", sans-serif;
+        font-family: "Segoe WP", "Segoe UI", "Helvetica", sans-serif;
         font-size: 150%;
         /* font-size: 3em; */
         margin: 0px 5px 15px $guttermargin + $indentmargin;
