@@ -75,8 +75,8 @@ Below is the page layout for an example app. Arrows show where navigation button
     <li>To navigate to another page, put the following in e.g. a button click event handler
 {% if version == 'app' %}
     <pre><code>NavigationService.Navigate(
-    new Uri("/View/ProfilePage.xaml", UriKind.Relative)
-    );</code></pre>
+  new Uri("/View/ProfilePage.xaml",
+  UriKind.Relative));</code></pre>
 {% else %}
     <pre><code>NavigationService.Navigate(new Uri("/View/ProfilePage.xaml", UriKind.Relative));</code></pre>
 {% endif %}
@@ -84,17 +84,25 @@ Below is the page layout for an example app. Arrows show where navigation button
     <li>To pass data between pages use HTML style queries in the URI e.g.
 {% if version == 'app' %}
     <pre><code>NavigationService.Navigate(
-    new Uri(String.Format(
-    "/View/ProfilePage.xaml?Action={0}&Id={0}", 
-    action, id)));</code></pre>
+  new Uri(String.Format(
+  "/View/ProfilePage.xaml?Action={0}&Id={0}", 
+  action, id)));</code></pre>
 {% else %}
     <pre><code>NavigationService.Navigate(
     new Uri(String.Format("/View/ProfilePage.xaml?Action={0}&Id={0}", action, id)));</code></pre>
 {% endif %}
     </li>
     <li>
-    To retrieve these queries, use,<pre><code>string action;
+    To retrieve these queries, use,;
+{% if version == 'app' %}
+<pre><code>string action
+NavigationContext.QueryString
+  .TryGetValue("Action", 
+  out action);</code></pre>
+{% else %}
+<pre><code>string action
 NavigationContext.QueryString.TryGetValue("Action", out action);</code></pre>
+{% endif %}
     </li>
     <li>To pass an object from one page to another either,
         <ul class="compact">
