@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
- <head>
+ <head class="wide">
   <title>
     {% block title %}
     {% endblock %}
@@ -8,6 +8,8 @@
   <meta name="viewport" content="width=device-width" />
   <script src="js/highlight.pack.js">
   </script>
+{% block headelements %}
+{% endblock %}
   <script>
    hljs.initHighlightingOnLoad();
 
@@ -38,6 +40,9 @@
   }
   addEventHandler(window, "load", function() { setStyleForSize(); } );
   addEventHandler(window, "resize", function() { setStyleForSize(); } );
+
+{% block javascript %}
+{% endblock %}
 
   </script>
   <link rel="stylesheet" type="text/css" href="styles/styles.css" />

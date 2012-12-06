@@ -4,6 +4,20 @@
     Windows Phone Development For People In a Hurry
 {% endblock %}
 
+{% if version != 'app' %}
+{% block headelements %}
+    <script src="http://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js" type="text/javascript"></script>
+{% endblock %}
+{% block javascript %}
+    $(document).ready(function() {
+        $("#qrpopup").hide();
+        $("#qrtoggle").click(function() {
+            $("#qrpopup").slideToggle();
+        });
+    });
+{% endblock %}
+{% endif %}
+
 {% block inpagecss %}
 div#header {
     background: {{ accent_hex }};
@@ -17,6 +31,25 @@ div#footer a {
     height: 30px; 
     margin-top: -3px;
 }
+#qrpopup {
+    margin-top: 10px;
+    background: #333;
+    padding: 15px;
+}
+#qrtoggle {
+}
+#qrpopup .imgcontainer {
+    text-align: center;
+}
+#qrpopup > .imagecontainer > img {
+    vertical-align: middle;
+}
+#qrcode {
+    padding-left: 40px;
+    vertical-align: middle;
+}
+
+
 {%endblock %}
 
 {% block topnav %}
@@ -70,7 +103,16 @@ div#footer a {
 {% if version != 'app' %}
     <li>
       are now available offline 
-      <a href="http://www.windowsphone.com/en-us/store/app/wp-development-fpiah/b059d8c5-8884-474a-81bf-c5d360b68935"><img src="images/store.png" alt="Windows Store Page for Windows Phone Development for People in a Hurry" style="vertical-align: middle" /></a>
+<!-- http://www.windowsphone.com/en-us/store/app/wp-development-fpiah/b059d8c5-8884-474a-81bf-c5d360b68935 -->
+      <a id="qrtoggle">
+        <img src="images/store.png" alt="Windows Store Page for Windows Phone Development for People in a Hurry" style="vertical-align: middle" />
+      </a>
+
+      <div id="qrpopup" >
+        <div class="imgcontainer">
+                <a href="http://windowsphone.com/s?appId=b059d8c5-8884-474a-81bf-c5d360b68935"><img style="vertical-align: middle" src="images/qrlink1.png" alt="download via the web browser" /></a><img id="qrcode" src="images/qrlink2.png">
+        </div>
+      </div>
     </li>
 {% endif %}
    </ul>
