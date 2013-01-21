@@ -7,7 +7,7 @@ VERSIONS = ('app', 'web')
 TEMPLATE_DIR = "../content"
 DUMP_DIRSTEM = {
     'web' : "../../",
-    'app' : "../../../../../WindowsPhone/WindowPhoneDevelopmentFPIAH/WindowPhoneDevelopmentFPIAH/HTML/",
+    'app' : "../../../../../WindowsPhone/WindowsPhoneFPIAHGuide/WindowPhoneDevelopmentFPIAH/HTML/",
 }
 BASE_FILESTEM = "%s/base.tmpl"
 ACCENTS = (
